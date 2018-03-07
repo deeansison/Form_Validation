@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,mBAAoB;EAChB,KAAK,EAAE,IAAI;;;AAGf,WAAW;AACX,yBAA0B;EACtB,UAAU,EAAE,kBAAkB;EAC9B,aAAa,EAAE,IAAI;;;AAGvB,YAAY;AACZ,yBAA0B;EACtB,UAAU,EAAE,GAAG;EACf,aAAa,EAAE,IAAI;;;AAGvB,qBAAqB;AACrB,+BAAgC;EAC5B,UAAU,EAAE,OAAO",
+"sources": ["../../../resources/sass/scroll.scss"],
+"names": [],
+"file": "scroll.css"
+}

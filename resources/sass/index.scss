@@ -1,0 +1,144 @@
+//INDEX PHP
+.main-row{
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #ffffff;
+    margin:0;
+
+
+  .log-box{
+
+    height: 100vh;
+    padding: 90px 50px 150px 50px;
+    position: fixed; 
+
+        .logo{
+            text-align: center;
+            
+            img{
+            margin-top:20px; 
+            margin-bottom:40px;
+            height: 100px;
+            width: 300px;
+            } 
+        }
+        
+        .user-img{
+            display: inline-flex;
+            // flex-flow: row wrap;
+            width: 100%;  
+            margin: 0;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            
+            .selectuser{
+                border: none;
+                background-color: rgb(253, 253, 253);
+                margin: 2px;
+                
+                img{
+                    height: 180px;
+                    width: 150px;
+                }
+            }
+        }
+    }
+
+    .rem-box{
+        padding:0; 
+        background-color: rgb(44, 43, 43);
+        min-height: 100vh;
+        height: auto;
+        padding-top: 50px;
+        padding-left: 10px; 
+        padding-right: 10px; 
+        float: right;
+
+        #rem{
+            color: #eceef1;
+            font-size: 200%;
+        }
+
+        .ann-card {
+            min-height: 10vh;
+            height: auto;
+            width: 100%;
+            background: rgb(255, 255, 255);
+            border-radius: 20px;
+            margin-bottom:1%; 
+            padding: 3%;
+        
+            .u-cont{
+                text-align: center;
+                border-right: solid black 2px;
+                .ann-img{
+                height:30%;
+                width:35%;
+                border-radius: 50px;
+                
+                }
+
+                #ann_name{
+                    padding: 10px 10px;
+                    font-size: 20px;
+                    color: rgba(51, 4, 4, 0.897);
+                }
+            }
+            
+            .a-cont{
+                #ann_msg{
+                    margin: 0;
+                    padding: 10px;
+                    font-size: 16px; 
+                }
+            }        
+        }
+    }
+}
+
+
+
+//END OF CODE
+
+
+//LOGIN PHP
+.main-container{
+    width:100%;
+   
+    #logincont{
+        margin-top: 8%;
+       
+     
+        .modal-content{
+            background-color: rgb(250, 250, 250);
+            opacity: 0.9;
+            text-align: center;
+            box-shadow: none;
+
+            .login-text{
+                color: rgb(143, 35, 35);
+            }
+
+            .user-image{
+                width: 100%;
+                height: 100%;
+                margin-bottom:3%; 
+                img{
+                    width: 30%;
+                    height: 10%;
+                }
+            }
+    
+            .login-button{
+            float: right;
+            padding-left: 1%;
+            padding-right: 1%;
+            width: 30%;
+            }
+        }
+    }
+}
+
+//END OF CODE
+

@@ -1,0 +1,51 @@
+body .user-cont {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  background-color: white; }
+  body .user-cont .clock-cont {
+    padding-top: 100px;
+    width: 100%;
+    height: 100%; }
+    body .user-cont .clock-cont .clockdate-wrapper {
+      background-color: #eceef1;
+      padding: 15px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      border-radius: 5px;
+      margin: 0 auto;
+      margin-top: 5%; }
+      body .user-cont .clock-cont .clockdate-wrapper #clock {
+        background-color: #eceef1;
+        font-family: sans-serif;
+        font-size: 45px;
+        text-shadow: 0px 0px 1px #fff;
+        color: #050404; }
+      body .user-cont .clock-cont .clockdate-wrapper #clock span {
+        color: #888;
+        text-shadow: 0px 0px 1px;
+        font-size: 30px; }
+      body .user-cont .clock-cont .clockdate-wrapper #date {
+        letter-spacing: 10px;
+        font-size: 14px;
+        font-family: arial,sans-serif;
+        color: #050404; }
+    body .user-cont .clock-cont #status {
+      padding-top: 20px;
+      padding-bottom: 20px; }
+      body .user-cont .clock-cont #status #statusdummy2 {
+        background-color: white;
+        border: none;
+        width: 100%;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 0; }
+    body .user-cont .clock-cont #btnin {
+      width: 40%;
+      height: 50%; }
+    body .user-cont .clock-cont #btnout {
+      width: 40%;
+      height: 30%; }
+
+/*# sourceMappingURL=user.css.map */

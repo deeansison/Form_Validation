@@ -1,0 +1,54 @@
+.prof-main-row {
+  padding: 0;
+  margin: 0;
+  width: 100%; }
+  .prof-main-row .prof-emp-box {
+    padding-top: 100px;
+    height: 100%;
+    /* On mouse-over, add a deeper shadow */
+    /* Add some padding inside the card container */ }
+    .prof-main-row .prof-emp-box .card {
+      /* Add shadows to create the "card" effect */
+      width: 100%;
+      margin: 0;
+      text-align: center; }
+      .prof-main-row .prof-emp-box .card img {
+        width: 50%;
+        height: 50%; }
+      .prof-main-row .prof-emp-box .card .container {
+        width: 100%;
+        padding-top: 30px; }
+  .prof-main-row .emp-data-box {
+    padding: 100px 10px 50px 10px;
+    min-height: 100vh;
+    height: auto;
+    float: right; }
+    .prof-main-row .emp-data-box #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%; }
+    .prof-main-row .emp-data-box #customers td, .prof-main-row .emp-data-box #customers th {
+      border: 1px solid #ddd;
+      padding: 8px; }
+    .prof-main-row .emp-data-box #customers tr:nth-child(even) {
+      background-color: #f2f2f2; }
+    .prof-main-row .emp-data-box #customers tr:hover {
+      background-color: #ddd; }
+    .prof-main-row .emp-data-box #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white; }
+
+#updateButton {
+  background-color: #4CAF50; }
+
+@media screen and (max-width: 768px) {
+  .emp-data-box {
+    width: 100%; }
+
+  .prof-emp-box {
+    width: 100%; } }
+
+/*# sourceMappingURL=profile.css.map */

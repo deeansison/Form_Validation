@@ -1,0 +1,100 @@
+//Body
+
+
+.prof-main-row{
+padding: 0;
+margin: 0;
+    width: 100%;
+    
+    .prof-emp-box{
+        padding-top: 100px;
+        height: 100%;
+       
+    
+       
+
+        .card {
+            /* Add shadows to create the "card" effect */
+           
+            width: 100%;
+           margin: 0;
+           text-align: center;
+            img{
+                
+                width: 50%;
+                height: 50%;
+            
+            }
+            .container {
+                width: 100%;
+                padding-top: 30px;
+            }
+        }
+        
+        /* On mouse-over, add a deeper shadow */
+        
+        
+        /* Add some padding inside the card container */
+       
+
+    }
+
+    .emp-data-box{
+        padding: 100px 10px 50px 10px;
+        min-height: 100vh;
+        height: auto;
+      
+    float: right;
+   
+ 
+
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        
+    }
+    
+    #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    }
+}
+
+
+
+//update profile
+
+#updateButton{
+    background-color: #4CAF50;
+}
+
+
+//END OF UPDATE PROFILE
+
+@media screen and (max-width: 768px){
+
+    .emp-data-box{
+
+
+width:100%;
+    }
+      
+    .prof-emp-box{
+        width: 100%;
+    }
+    }
