@@ -10,34 +10,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/admin.css">
     <link rel="stylesheet" href="assets/css/scroll.css">
+
+    <link rel="stylesheet" href="assets/css/fieldanimate.css">
+    <link rel="stylesheet" href="assets/css/iconanimate.css">
+
+    <!-- <link rel="stylesheet" href="assets/css/index.css"> -->
+
+
     <title>Kestrel-DDM</title>
 </head>
 
 <header>
-    <!-- Static navbar -->
-    <div class="container nav-cntainer">
-    <!-- Static navbar -->
-        <nav class="navbar navbar-default nav-cntents">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                        aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <span id="openBtn" onclick="openNav()"><img src="assets/img/kestrellogo.png" alt=""></span>
+<!-- <div class="kestrel">
+<img src="assets/img/kestrellogo.png" alt="">
+</div> -->
+   
+<!-- <div class="icon-bar">
+<a href="#" ><p id="pr">PROFILE</p><i class='fa fa-user'></i></a> 
+        <a href="logout.php" ><p id="so">LOGOUT</p><i class='fa fa-sign-out'></i></a> 
+        
+    </div> -->
+    <!-- <div id="clockdate">
+                <div class="clockdate-wrapper">
+                    <div id="clock"></div>
+                    <div id="date"></div>
                 </div>
-            <div id="navbar" class="navbar-collapse collapse">
+            </div> -->
 
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="admin.php">home |</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle dt" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <?php
+
+<div class="icon-bar-admin">
+<a href="adminvalidation.php" ><p id="ho">HOME</p><i class='fa fa-sign-out'></i></a> 
+<a href="logout.php" ><p id="so">LOGOUT</p><i class='fa fa-sign-out'></i></a> 
+
+        
+    </div>
+<?php
                             include('connection.php');
                             session_start();      
                             if(isset($_SESSION["password"])){  
@@ -46,9 +56,8 @@
                                 $sql = "SELECT user_image FROM user_credentials where username='$uname' ";
                                 $result = mysqli_query($db,$sql);
                         
-                                while($row=mysqli_fetch_array($result)){ 
-                                    echo"<input id='user_img' name='user_img' type='hidden' class='form-control' value='".$row['user_image']."' />";
-                                    echo "<img class='crd-img' src='".$row['user_image']."'width='10%' height='10%'>";
+                                while($row=mysqli_fetch_array($result)){
+                                    
                                     echo'<input id="username" name="username" type="hidden" class="form-control" value="'.$_SESSION["username"].'" > ';
                                 }
                             }  
@@ -57,170 +66,252 @@
                                 header("location:index.php");  
                             } 
                         ?>
-                    </a>
-                  
-                    <ul class="dropdown-menu">
-                        
-                        <?php
-                            echo '<li>';
-                                echo '<a href="logout.php">Logout</a>';
-                            echo '</li>';
-                            
-                            $uname = $_SESSION["username"];
-                            $db = mysqli_connect("localhost","root","","special_project");
-                            $sql = "SELECT username FROM user_credentials where username='$uname' ";
-                            $result = mysqli_query($db,$sql);
-                            while($row=mysqli_fetch_array($result)){
-                              
-                                echo '<li>';
-                                    echo "<a href='user_profile.php?view=".$row['username']." '>View Profile</a>";
-                                echo '</li>';
-                            }
-                        ?>
-                        
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-
-                </li>
-            </ul>
-            </div>
-            <!--/.nav-collapse -->
-            </div>
-            <!--/.container-fluid -->
-        </nav>
-
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-    </div>
 
 </header>
 
 <body onload="startTime()">
-    <div class="employee-modal ">
-        <div class="row main-row">
-
-            <div class="col-sm-4 log-box">
-                
-                <div id="clockdate">
-                    <div class="clockdate-wrapper">
-                        <div id="clock"></div>
-                        <div id="date"></div>
-                    </div>
-                </div>
     
-                <div class="cont">  
-                    <?php
-                        $db = mysqli_connect("localhost","root","","special_project");
-                        $uname = $_SESSION["username"]; 
-                        $sql = "SELECT status FROM user_credentials where username='$uname'";
-                        $result = mysqli_query($db,$sql);
+<div class="logo">
+        <img src="assets/img/kestrellogo.png" alt="">
+    </div>
+
+    <div class="row main-row">
+        <div class='user-img'>
+            <?php
+                $db = mysqli_connect("localhost","root","","special_project");
+                $sql = "SELECT * FROM user_credentials";
+                $result = mysqli_query($db,$sql);
                         
-                        while($row=mysqli_fetch_array($result)){
-                            echo"<input id='statusform' name='statusform' type='hidden' class='form-control' value='".$row['status']."'>";
-                        }
-                    ?>
-
-                    <div class='tin-tout'>
-                        <input id="statusdummy" name="statusdummy" type="hidden" class="form-control">
-                        <input id="statusdummy2" name="statusdummy2" type="text" class="form-control" disabled/>
-                        <input id="time_in" name="time_in" type="hidden" class="form-control"> 
-                        <input id="date_in" name="date_in" type="hidden" class="form-control"> 
-                        <input id="time_out" name="time_out" type="hidden" class="form-control"> 
-                        <input id="date_out" name="date_out" type="hidden" class="form-control">
-
-                        <div class='b-in-out'>
-                        <button type="submit" id="button_in" name='button_in'  class="btn btn-success">Time-In</button>
-                        <button type="submit" id="button_out" name='button_out'  class="btn btn-danger">Time-Out</button>
-                        </div>
-                    </div>
-
-                    <div class= 'rem-post'>
-                        <textarea  id="ann" name="ann" type="text" class="form-control" placeholder="Type Here..." ></textarea>
-                        
-                        <div class= 'b-sub'>
-                            <button type="submit" id="annpost" name='annpost'  class="btn btn-success">Post</button>
-                        </div>
-
-                    </div>
-
+                while($row=mysqli_fetch_array($result)){
+                    echo"<form action='index.php' method='post' role='form'>";
+                        echo"<div class='crds'>";
+                            echo"<button type='submit' class='selectuser' name='selectuser'>";
+                                echo"<div class='crds2'>";
+                                    echo"<input class='username' name='username' type='hidden' class='form-control' value='".$row['username']."'>";
+                                    echo'<div class="im-con">';
+                                        echo'<img class="ann-img" src="'.$row['user_image'].'" width="10%" height="10%" />';
+                                    echo '</div>';
+                                    echo'<div class="p-con">';
+                                        echo"<p id='usr'>".$row['first_name']." ".$row['middle_name']." ".$row['last_name']."</p>";
+                                        echo"<p id='ps'>".$row['position']."</p>";
+                                    echo '</div>';
+                                echo"</div>";
+                            echo"</button>";
+                        echo"</div>";
+                    echo"</form>";
+                }
+            ?>  
+            
+            <div id="sup">
+            <div class='crds'>
+          <button type='button' class='selectuser' name='selectuser'>
+        <div class='crds2'>
+  
+        <div class="addim-con">
+       <i class='fa fa-user-plus user'></i>
+         </div>
+         <p>ADD NEW EMPLOYEE</p>
+          
+               </div>
+              </button>
                 </div>
-            </div>
-    
-            <div class="col-sm-8 rem-box">
-
-                <div class="container body-container">
-                    <div class="wrapper">
-                        <div class="cards">
-                            <?php
-                                $db = mysqli_connect("localhost","root","","special_project");
-                                $sql = "SELECT * FROM user_credentials";
-                                $result = mysqli_query($db,$sql);
-                            
-                                while($row=mysqli_fetch_array($result)){
-                                    echo "<div class=' card [ is-collapsed ] '>";
-                                        echo "<div class='custom-card card__inner'>";
-                                            echo "<span><a href='profile.php?view=".$row['username']." '><img class='crd-img' src='".$row['user_image']."'></a></span>";
-                                           
-                                            echo "<p>".$row['username']." </p>";
-                                        echo "</div>";
-                                    echo "</div>";
-                                }
-                            ?>      
-                        
-                            
-                            <div class=' card [ is-collapsed ] '>
-                            <div id="sup">
-                                <div class='custom-card card__inner add-emp-card'>
-                                    
-                                    <span><img id="add" src="assets/img/add.png" alt="" ></span>
-                                    <div class="sign-up">
-                                        <p>Add New Employee</p>
-                                    </div>
-                                    
-                                    <i class='fa fa-folder-o'></i>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-            </div>
         </div>
-    </div>  
-
-
+    </div>
+    </div>
     <!-- SIGN UP -->
-    <div class="modal-dialog sign-up-modal hide">
+    <div class="modal-dialog sign-up-modal  hide">
         <div class="modal-content">
             <div class="login-text">                     
-                <h2>Sign Up</h2>
+   
             </div>
           
-            <div class="modal-body">
+            <div class="modal-body ">
 
             <!-- <button type="submit" id="log-in" name='log-in' class="btn btn-danger btn-lg login-button">Back
                             <span class="glyphicon glyphicon-menu-right"></span>
                         </button><br><br> -->
             <!-- form was here -->                 
                 <form method="post" action="insert.php" enctype="multipart/form-data">
-                    <div class="form-group">
+
+
+                <div class="content">
+                        <div class="fld3">
+                            <span class="input input--hoshi">
+                            <input type="file" name="USERIMAGE" id="USERIMAGE" accept="assets/img/userimages/*" required />
+                            </span>
+                        </div>
+
+                    </div>
+                <div class="content">
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text"  id="fn" name="fn" placeholder="First Name"/>
+                                
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                    <div class="lck">
+                                        <i class="fa fa-lock lck_icon"></i>
+                                    </div>
+                                </label>
+                            </span>
+                        </div>
+
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text" id="mn" name="mn" placeholder="Middle Name"/>
+                                
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                 
+                                </label>
+                            </span>
+                        </div>
+
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text" id="ln" name="ln" placeholder="Last Name"/>
+                                
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                  
+                                </label>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="content">
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text" id="ea" name="ea" placeholder="Email Address"/>
+                                
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                    <div class="lck">
+                                        <i class="fa fa-lock lck_icon"></i>
+                                    </div>
+                                </label>
+                            </span>
+                        </div>
+
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text" id="cn" name="cn" placeholder="Contact Number"/>
+                                
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                    <div class="lck">
+                                        <i class="fa fa-lock lck_icon"></i>
+                                    </div>
+                                </label>
+                            </span>
+                        </div>
+
+                       
+
+                        <div class="fld3">
+                        <span class="input input--hoshi">
+                        <input type="hidden" id="status" name="status" class="form-control" />
+                        
+                    <select id="pos" name="pos" class="form-control"> 
+                    <option value="Admin">Select Position</option>                     
+                            <option value="Admin">Admin</option>
+                            <option value="Employee">Employee</option>
+                        </select>
+                        </span>
+                        </div>
+
+
+                    </div>
+
+
+                    
+
+                    <div class="content">
+                        <div class="fld1">
+                            <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text" id="uname" name="uname" placeholder="Username"/>
+                                
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                    <div class="lck">
+                                        <i class="fa fa-lock lck_icon"></i>
+                                    </div>
+                                </label>
+                            </span>
+                        </div>
+
+                    </div>
+                    
+
+                    <div class="content">
+                        <div class="fld1">
+                            <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text"id="rpassword" name="rpassword" placeholder="Password"/>
+                                
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                    <div class="lck">
+                                        <i class="fa fa-lock lck_icon"></i>
+                                    </div>
+                                </label>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="content">
+                        <div class="fld1">
+                            <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text" id="cpassword" name="cpassword" placeholder="Confirm Password"/>
+                                
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                    <div class="lck">
+                                        <i class="fa fa-lock lck_icon"></i>
+                                    </div>
+                                </label>
+                            </span>
+                        </div>
+
+                    </div>
+
+                 
+
+                    
+                  
+                  
+
+                  
+                  
+                    
+                    <div class="content">
+                        <div class="fld3">
+                            <span class="input input--hoshi">
+                            <button type="submit" id="signUpBtn" name='signUpBtn' class="btn btn-danger btn-lg login-button">Sign Up
+                            
+                            </button>
+                            </span>
+                        </div>
+
+                        </div>
+                  
+                   
+                   
+
+
+
+               
+
+
+
+                   
+
+
+                    <!-- <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-user"></span>
                             </span>
                             <input id="fn" name="fn" type="text" class="form-control" placeholder="First Name" required />
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-user"></span>
@@ -304,7 +395,7 @@
                         <button type="submit" id="signUpBtn" name='signUpBtn' class="btn btn-danger btn-lg login-button">Sign Up
                             
                         </button>
-                    </div>
+                    </div> -->
 
                     
                     

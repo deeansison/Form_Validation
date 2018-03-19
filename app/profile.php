@@ -162,7 +162,7 @@
                               echo"<div class='modal-content'>";
                               echo"<div class='modal-header'>";
                               echo"<button type='button' class='close' data-dismiss='modal'>&times;</button>";
-                              echo"<h4 class='modal-title'>Modal Header</h4>";
+                              echo"<h4 class='modal-title'>...</h4>";
                               echo"</div>";
                               echo"<div class='modal-body'>";
                                //username
@@ -171,7 +171,7 @@
                                     echo"<span class='input-group-addon'>";
                                     echo"<span class='glyphicon glyphicon-user'></span>";
                                     echo"</span>";
-                                    echo"<input id='un' name='un' type='text' class='form-control' placeholder='User Name' required/>";
+                                    echo"<input id='un' name='un' type='text' class='form-control' placeholder='New User Name' required/>";
                                     echo"</div>";
                                     echo"</div>";
                                
@@ -181,7 +181,7 @@
                                     echo"<span class='input-group-addon'>";
                                     echo"<span class='glyphicon glyphicon-lock'></span>";
                                     echo"</span>";
-                                    echo"<input id='rpassword' name='rpassword' type='password' class='form-control' placeholder='Password' required />";
+                                    echo"<input id='rpassword' name='rpassword' type='password' class='form-control' placeholder='New Password' required />";
                                     echo"</div>";
                                     echo"</div>";
                                   
@@ -189,6 +189,7 @@
                                  //position
                                  echo"<div class='form-group text-center'>";
                                  echo"<div class='input-group'>";
+                                 echo"<h4 class='modal-title'>New Position</h4>";
                                  echo"<select id='pos' name='pos' class='form-control'>";                      
                                  echo"<option value='Admin'>Admin</option>";
                                  echo"<option value='Employee'>Employee</option>";
@@ -208,7 +209,7 @@
                                     echo"<span class='glyphicon glyphicon-lock'></span>";
                                     echo"</span>";
                                     echo"<input id='uname' name='uname' type='hidden' class='form-control' placeholder='User Name' value='".$row['username']."' />";
-                                    echo"<input id='password' name='password' type='password' class='form-control' placeholder='Password' required />";
+                                    echo"<input id='password' name='password' type='password' class='form-control' placeholder='Old Password' required />";
                                 
                                     echo"</div>";
                                     echo"<button type='submit' id='updatePriv' name='updatePriv' class='btn btn-danger btn-lg login-button'>UPDATE 

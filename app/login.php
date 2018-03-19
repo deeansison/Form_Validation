@@ -49,7 +49,7 @@
                     $_SESSION["username"] = $_POST["username"]; 
                     $_SESSION["password"] = $_POST["password"]; 
              
-                    header("location:admin.php");  
+                    header("location:adminvalidation.php");  
                 }  
                 
                 else{  
@@ -66,71 +66,86 @@
 ?>
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/fieldanimate.css">
+
+    <link rel="stylesheet" href="assets/css/iconanimate.css">
     <title>Kestrel-DDM</title>
 </head>
 
+
 <body>
-    
+
     <div class="main-container">    
-        <div class="modal-dialog login-in-modal" id="logincont">
-            <div class="modal-content">
-                <div class="login-text">                     
-                    <h2>Login</h2>
-                </div>
-            <div class="modal-body">
+    
+        <div class="icon-bar_back">
+            <a href="logout.php"><p id="bck">BACK</p><i class='fa fa-arrow-left faa-horizontal animated '></i></a> 
+        </div> 
+
+        <div class="modal-body">
+            <div class="conts">
                 <form action="login.php" method="post" role="form">
-   
-                <?php
-                    include('connection.php');
-                    //session_start();  
 
-                    if(isset($_SESSION["username"])){  
-                        $uname = $_SESSION["username"];
-                        $db = mysqli_connect("localhost","root","","special_project");
-                        $sql = "SELECT user_image FROM user_credentials where username='$uname' ";
-                        $result = mysqli_query($db,$sql);
-                        
-                        while($row=mysqli_fetch_array($result)){
-                            echo"<div class='user-image'>";
-                            echo"<img src='".$row['user_image']."'>";
-                            echo "</div>";
-                            echo'<input id="username" name="username" type="hidden" class="form-control" value="'.$_SESSION["username"].'" > ';
-                        }
-                    }  
-                   
-                    else{  
-                        header("location:index.php");  
-                    } 
-                ?>
+                    <?php
+                        include('connection.php');
 
+                        if(isset($_SESSION["username"])){  
+                            $uname = $_SESSION["username"];
+                            $db = mysqli_connect("localhost","root","","special_project");
+                            $sql = "SELECT user_image FROM user_credentials where username='$uname' ";
+                            $result = mysqli_query($db,$sql);
+                            
+                            while($row=mysqli_fetch_array($result)){
+                                echo'<div class="im-con">';
+                                    echo'<img class="ann-img" src="'.$row['user_image'].'" width="10%" height="10%" />';
+                                echo '</div>';
+                                echo'<input id="username" name="username" type="hidden" class="form-control" value="'.$_SESSION["username"].'" > ';
+                            
+                                echo'<div class="p-con">';
+                                    echo"<p id='usrname'>".$_SESSION["username"]."</p>";
+                                echo '</div>';
 
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-lock"></span>
+                            }
+                        }  
+                    
+                        else{  
+                            header("location:index.php");  
+                        } 
+                    ?>
+
+                    <div class="content">
+                        <div class="fld">
+                            <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="password" id="input-4" name="password" placeholder="Password"/>
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                    <div class="lck">
+                                        <i class="fa fa-lock lck_icon"></i>
+                                    </div>
+                                </label>
                             </span>
-                            <input type="password" name="password" class="form-control" placeholder="Password" />
                         </div>
                     </div>
 
-                    <div class="form-group text-center">
-                        <button type="submit" name="login" class="btn btn-danger btn-lg login-button">Login
-                                <span class="glyphicon glyphicon-menu-right"></span>
-                        </button>
+                    <div class="content">
+                        <div class="fld">
+                            <span class="input input--hoshi">
+                                <button type="submit" name="login" class="btn btn-primary btn-block login_but">LOGIN</button>
+                            </span>
+                        </div>
                     </div>
                 </form>
-            </div>
+            </div> 
         </div>
     </div>
-</div>
-
+  
     <!-- Latest compiled and minified JavaScript -->
     <script
         src="https://code.jquery.com/jquery-3.3.1.js"

@@ -32,31 +32,51 @@ $cell.find('.js-collapser').click(function () {
 
 });
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("mySidenav").style.width = "315px";
+    document.getElementById("overlay").style.display = "block";
 }
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("overlay").style.display = "none";
 }
 
 
+
+
+
+
+// function w3_open() {
+//     document.getElementById("mySidebar").style.display = "block";
+//     document.getElementById("myOverlay").style.display = "block";
+//   }
+  
+//   function w3_close() {
+//     document.getElementById("mySidebar").style.display = "none";
+//     document.getElementById("myOverlay").style.display = "none";
+//   }
+
+
+
+
+
 document.querySelector("#sup").addEventListener("click", function () {
-    document.querySelector(".employee-modal").classList.remove('hide');
+    document.querySelector(".main-row").classList.remove('hide');
     document.querySelector(".sign-up-modal").classList.add('hide');
 });
 
 
 $("#sup").click(function (e) { 
     e.preventDefault();
-    $('.employee-modal').addClass('hide');
+    $('.main-row').addClass('hide');
     $('.sign-up-modal').removeClass('hide');
 });
 
 
 $("#log-in").click(function (e) {
     e.preventDefault();
-    $('.sign-up-modal').addClass('hide');
+    $('.main-row').addClass('hide');
     $('.employee-modal').removeClass('hide');
 });
 

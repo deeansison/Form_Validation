@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,KAAE;EACE,UAAU,EAAE,KAAK",
+"sources": ["../../../resources/sass/reminders.scss"],
+"names": [],
+"file": "reminders.css"
+}

@@ -1,51 +1,173 @@
-body .user-cont {
-  text-align: center;
+.kestrel {
   width: 100%;
-  height: 100vh;
-  background-color: white; }
+  background-color: #0c0c0c;
+  float: right;
+  z-index: 1; }
+  .kestrel img {
+    width: 20px;
+    height: 20px; }
+
+.clockdate-wrapper {
+  background-color: #ffffff;
+  padding-top: 20px;
+  padding-right: 20px;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  text-align: right; }
+  .clockdate-wrapper #clock {
+    background-color: #ffffff;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-shadow: 0px 0px 1px #fff;
+    color: #050404; }
+  .clockdate-wrapper #clock span {
+    color: #888;
+    text-shadow: 0px 0px 1px;
+    font-size: 30px; }
+  .clockdate-wrapper #date {
+    font-size: 13px;
+    font-family: arial,sans-serif;
+    color: #050404; }
+
+.icon-bar {
+  position: fixed;
+  margin-top: 20px;
+  z-index: 2; }
+  .icon-bar a {
+    position: relative;
+    left: -100px;
+    width: 180px;
+    transition: 0.3s;
+    height: auto;
+    background-color: black;
+    opacity: 0.8;
+    border: #ffffff solid 1px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: #ffffff;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px; }
+    .icon-bar a #so {
+      margin-right: 50px;
+      font-size: 15px;
+      display: inline-block; }
+    .icon-bar a #pr {
+      margin-right: 50px;
+      font-size: 15px;
+      display: inline-block; }
+
+.icon-bar a:hover {
+  background-color: #DD2018;
+  left: 0; }
+
+.active {
+  background-color: #DD2018 !important; }
+
+body .user-cont {
+  position: relative;
+  background-color: #ffffff;
+  width: 100%;
+  box-shadow: none;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
   body .user-cont .clock-cont {
-    padding-top: 100px;
+    margin: 0%;
+    padding-top: 10px;
     width: 100%;
-    height: 100%; }
-    body .user-cont .clock-cont .clockdate-wrapper {
-      background-color: #eceef1;
-      padding: 15px;
-      max-width: 400px;
+    background-color: #ffffff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    body .user-cont .clock-cont .logo {
+      text-align: center; }
+      body .user-cont .clock-cont .logo img {
+        margin-bottom: 30px;
+        height: 100px;
+        width: 300px; }
+    body .user-cont .clock-cont .im-con {
+      background-color: black;
+      height: 142px;
+      width: 144px;
+      overflow: hidden;
+      border-radius: 50%;
+      margin-bottom: 30px; }
+      body .user-cont .clock-cont .im-con .ann-img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover; }
+    body .user-cont .clock-cont .p-con {
+      height: auto;
+      margin-bottom: 30px; }
+      body .user-cont .clock-cont .p-con #usr {
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        text-transform: capitalize;
+        color: #0c0c0c; }
+      body .user-cont .clock-cont .p-con #ps {
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+        text-transform: capitalize;
+        color: #aaaaaa; }
+    body .user-cont .clock-cont #status #statusdummy2 {
+      background-color: white;
+      border: none;
       width: 100%;
       text-align: center;
-      border-radius: 5px;
-      margin: 0 auto;
-      margin-top: 5%; }
-      body .user-cont .clock-cont .clockdate-wrapper #clock {
-        background-color: #eceef1;
-        font-family: sans-serif;
-        font-size: 45px;
-        text-shadow: 0px 0px 1px #fff;
-        color: #050404; }
-      body .user-cont .clock-cont .clockdate-wrapper #clock span {
-        color: #888;
-        text-shadow: 0px 0px 1px;
-        font-size: 30px; }
-      body .user-cont .clock-cont .clockdate-wrapper #date {
-        letter-spacing: 10px;
-        font-size: 14px;
-        font-family: arial,sans-serif;
-        color: #050404; }
-    body .user-cont .clock-cont #status {
-      padding-top: 20px;
-      padding-bottom: 20px; }
-      body .user-cont .clock-cont #status #statusdummy2 {
+      font-size: 30px;
+      box-shadow: 0; }
+    body .user-cont .clock-cont .btns {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center; }
+      body .user-cont .clock-cont .btns .btnin {
         background-color: white;
-        border: none;
-        width: 100%;
+        color: #0c0c0c;
+        border: #1e1e1e1f solid 1px;
+        border-radius: 0%;
         text-align: center;
-        font-size: 30px;
-        box-shadow: 0; }
-    body .user-cont .clock-cont #btnin {
-      width: 40%;
-      height: 50%; }
-    body .user-cont .clock-cont #btnout {
-      width: 40%;
-      height: 30%; }
+        font-size: 15px;
+        width: 250px; }
+      body .user-cont .clock-cont .btns .btnout {
+        background-color: white;
+        color: #0c0c0c;
+        border: #1e1e1e1f solid 1px;
+        border-radius: 0%;
+        text-align: center;
+        font-size: 15px;
+        width: 250px; }
+      body .user-cont .clock-cont .btns .m-accounts {
+        margin-top: 2px;
+        background-color: white;
+        color: #0c0c0c;
+        border: #1e1e1e1f solid 1px;
+        border-radius: 0%;
+        text-align: center;
+        font-size: 15px;
+        width: 250px; }
+      body .user-cont .clock-cont .btns .btnin:hover {
+        background-color: #DD2018;
+        transition: 0.2s;
+        color: white; }
+      body .user-cont .clock-cont .btns .btnout:hover {
+        background-color: #DD2018;
+        transition: 0.2s;
+        color: white; }
+      body .user-cont .clock-cont .btns .m-accounts:hover {
+        background-color: #DD2018;
+        transition: 0.2s;
+        color: white; }
 
 /*# sourceMappingURL=user.css.map */

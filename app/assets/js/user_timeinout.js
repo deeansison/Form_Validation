@@ -1,18 +1,26 @@
 stat = $('#statusform').val()
 
 if (stat == "Out") {
-    document.getElementById('button_out').disabled = true;
-    document.getElementById('button_in').disabled = false;
+    document.getElementById('button_out').style.display="none";
+    document.getElementById('button_in').style.display="block";
     document.getElementById('statusdummy').value = 'Out';
     document.getElementById('statusdummy2').value = 'Out';
 }
 
 if (stat == "On Work") {
-    document.getElementById('button_out').disabled = false;
-    document.getElementById('button_in').disabled = true;
+    document.getElementById('button_out').style.display="block";
+    document.getElementById('button_in').style.display="none";
     document.getElementById('statusdummy').value = 'On Work';
     document.getElementById('statusdummy2').value = 'On Work';
 }
+
+
+// tin = $('#time_in').val()
+
+// if (tin == "11:06:00") {
+//     document.getElementById('gm').value = 'Goodmorning';
+// }
+
 
 $(document).ready(function () {
     //AJAX BABEH
@@ -41,10 +49,12 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     $('#retrieve').html(data);
-                    document.getElementById('button_out').disabled = false;
-                    document.getElementById('button_in').disabled = true;
+                    document.getElementById('button_out').style.display="block";
+                    document.getElementById('button_in').style.display="none";
                     document.getElementById('statusdummy').value = 'On Work'; 
                     document.getElementById('statusdummy2').value = 'On Work'; 
+                    //window.location.href = 'logout.php';
+           
                 }
             });
         }
@@ -54,7 +64,9 @@ $(document).ready(function () {
         var 
         time_out = $('#time_out').val(),
         date_out = $('#date_out').val(),
-        username = $('#username').val()
+        username = $('#username').val(),
+        tin = $('#tin').val(),
+        din = $('#din').val()
         
 
         if (date_out == "" ) {
@@ -66,17 +78,30 @@ $(document).ready(function () {
                 data: {
                     time_out: time_out,
                     date_out: date_out,
-                    username: username
+                    username: username,
+                    tin: tin,
+                    din: din
                 },
                 success: function (data) {
                     $('#retrieve').html(data);
-                    document.getElementById('button_out').disabled = true;
-                    document.getElementById('button_in').disabled = false;
+                    document.getElementById('button_out').style.display="none";
+                    document.getElementById('button_in').style.display="block";
                     document.getElementById('statusdummy').value = 'Out';
                     document.getElementById('statusdummy2').value = 'Out';
+                    //window.location.href = 'logout.php';
+                    
+                    
+
+                   
+                   
+
                 }
             });
         }
     });
 
 });
+
+
+
+

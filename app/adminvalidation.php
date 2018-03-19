@@ -21,7 +21,8 @@
    
 <div class="icon-bar">
 <a href="#" ><p id="pr">PROFILE</p><i class='fa fa-user'></i></a> 
-        <a href="logout.php" ><p id="so">LOGOUT</p><i class='fa fa-sign-out'></i></a> 
+<a href="logout.php" ><p id="so">LOGOUT</p><i class='fa fa-sign-out'></i></a> 
+
         
     </div>
     <div id="clockdate">
@@ -102,8 +103,12 @@
             </div>
 
             <div class="btns">
-                <button type="submit" id="button_in" name='button_in'  class="btn btn-success btnin">Time-In</button>
-                <button type="submit" id="button_out" name='button_out'  class="btn btn-danger btnout">Time-Out</button>
+                <button type="submit" id="button_in" name='button_in'  class="btn btn-success btnin">TIME-IN</button>
+                <button type="submit" id="button_out" name='button_out'  class="btn btn-danger btnout">TIME-OUT</button> <br>
+              
+            </div>
+            <div class="btns">
+               <a href="admin.php" class="btn btn-info m-accounts" role="button">MANAGE ACCOUNTS</a>
             </div>
         </div>
 
