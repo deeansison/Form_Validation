@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,422 +14,352 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/admin.css">
     <link rel="stylesheet" href="assets/css/scroll.css">
-
-    <link rel="stylesheet" href="assets/css/fieldanimate.css">
     <link rel="stylesheet" href="assets/css/iconanimate.css">
-
-    <!-- <link rel="stylesheet" href="assets/css/index.css"> -->
-
 
     <title>Kestrel-DDM</title>
 </head>
 
-<header>
-<!-- <div class="kestrel">
-<img src="assets/img/kestrellogo.png" alt="">
-</div> -->
-   
-<!-- <div class="icon-bar">
-<a href="#" ><p id="pr">PROFILE</p><i class='fa fa-user'></i></a> 
-        <a href="logout.php" ><p id="so">LOGOUT</p><i class='fa fa-sign-out'></i></a> 
-        
-    </div> -->
-    <!-- <div id="clockdate">
-                <div class="clockdate-wrapper">
-                    <div id="clock"></div>
-                    <div id="date"></div>
-                </div>
-            </div> -->
-
-
-<div class="icon-bar-admin">
-<a href="adminvalidation.php" ><p id="ho">HOME</p><i class='fa fa-sign-out'></i></a> 
-<a href="logout.php" ><p id="so">LOGOUT</p><i class='fa fa-sign-out'></i></a> 
-
-        
-    </div>
-<?php
-                            include('connection.php');
-                            session_start();      
-                            if(isset($_SESSION["password"])){  
-                                $uname = $_SESSION["username"];
-                                $db = mysqli_connect("localhost","root","","special_project");
-                                $sql = "SELECT user_image FROM user_credentials where username='$uname' ";
-                                $result = mysqli_query($db,$sql);
-                        
-                                while($row=mysqli_fetch_array($result)){
-                                    
-                                    echo'<input id="username" name="username" type="hidden" class="form-control" value="'.$_SESSION["username"].'" > ';
-                                }
-                            }  
-                            
-                            else{  
-                                header("location:index.php");  
-                            } 
-                        ?>
-
-</header>
 
 <body onload="startTime()">
-    
-<div class="logo">
-        <img src="assets/img/kestrellogo.png" alt="">
-    </div>
 
-    <div class="row main-row">
-        <div class='user-img'>
-            <?php
-                $db = mysqli_connect("localhost","root","","special_project");
-                $sql = "SELECT * FROM user_credentials";
-                $result = mysqli_query($db,$sql);
+<!-- HEADER -->
+<header>
+
+    <!-- ICON -->
+    <div class="icon-bar-admin">
+        <a href="adminvalidation.php" ><p id="ho">HOME</p><i class='fa fa-home'></i></a> 
+        <a href="logout.php" ><p id="so">LOGOUT</p><i class='fa fa-sign-out'></i></a> 
+    </div>
+    <!-- END/ICON -->
+
+    <!-- CLOCK AND DATE -->
+    <div id="clockdate">
+        <div class="clockdate-wrapper">
+            <div id="clock"></div>
+            <div id="date"></div>
+        </div>
+    </div>
+    <!-- END/CLOCK AND DATE -->
+    
+
+    <?php
+        include('connection.php');
+        session_start();      
+        if(isset($_SESSION["password"])){  
+            $uname = $_SESSION["username"];
+            $db = mysqli_connect("localhost","root","","special_project");
+            $sql = "SELECT user_image FROM user_credentials where username='$uname' ";
+            $result = mysqli_query($db,$sql);
                         
-                while($row=mysqli_fetch_array($result)){
-                    echo"<form action='index.php' method='post' role='form'>";
-                        echo"<div class='crds'>";
-                            echo"<button type='submit' class='selectuser' name='selectuser'>";
+            while($row=mysqli_fetch_array($result)){
+                echo' <div class="logo">
+                    <img src="assets/img/kestrellogo.png" alt="">
+                </div>';
+                echo'<div class="welcome-uname-cont">';
+                    echo'<span id="welcome-name">Good Day '.$_SESSION["username"].'!</span>';
+                echo'</div>';
+                echo'<input id="username" name="username" type="hidden" class="form-control" value="'.$_SESSION["username"].'" > ';
+            }
+        }  
+     
+        else{  
+            header("location:index.php");  
+        } 
+    ?>
+
+</header>
+<!-- END/HEADER -->
+
+ 
+<!-- MAIN ROW  -->
+<div class="row main-row">
+
+    <!-- FOR USER PROFILE -->
+
+    <!--USER-->
+    <div class='user-prof'>
+        <?php
+            $db = mysqli_connect("localhost","root","","special_project");
+            $sql = "SELECT * FROM user_credentials";
+            $result = mysqli_query($db,$sql);
+                        
+            while($row=mysqli_fetch_array($result)){
+
+            // VIEW USER
+                echo"<form action='index.php' method='post' role='form'>";
+                    echo"<div class='crds'>";
+                        echo "<span><a href='profile.php?view=".$row['username']." '>";
+                            echo"<button type='button' class='selectuser' name='selectuser'>";
                                 echo"<div class='crds2'>";
                                     echo"<input class='username' name='username' type='hidden' class='form-control' value='".$row['username']."'>";
                                     echo'<div class="im-con">';
-                                        echo'<img class="ann-img" src="'.$row['user_image'].'" width="10%" height="10%" />';
+                                        echo'<img class="user-img" src="'.$row['user_image'].'" width="10%" height="10%" />';
                                     echo '</div>';
-                                    echo'<div class="p-con">';
-                                        echo"<p id='usr'>".$row['first_name']." ".$row['middle_name']." ".$row['last_name']."</p>";
-                                        echo"<p id='ps'>".$row['position']."</p>";
+                                    echo'<div class="prof-con">';
+                                        echo"<p id='usr-fname'>".$row['first_name']." ".$row['last_name']."</p>";
+                                        echo"<p id='comp-pos'>".$row['company_position']."</p>";
                                     echo '</div>';
                                 echo"</div>";
                             echo"</button>";
-                        echo"</div>";
-                    echo"</form>";
-                }
-            ?>  
-            
-            <div id="sup">
+                        echo"</a></span>";
+                    echo"</div>";
+                echo"</form>";
+            //END/ VIEW USER
+            }
+        ?>  
+        
+        <!-- ADD NEW EMPLOYEE -->
+        <div id="new-emp">
             <div class='crds'>
-          <button type='button' class='selectuser' name='selectuser'>
-        <div class='crds2'>
-  
-        <div class="addim-con">
-       <i class='fa fa-user-plus user'></i>
-         </div>
-         <p>ADD NEW EMPLOYEE</p>
-          
-               </div>
-              </button>
-                </div>
-        </div>
-    </div>
-    </div>
-    <!-- SIGN UP -->
-    <div class="modal-dialog sign-up-modal  hide">
-        <div class="modal-content">
-            <div class="login-text">                     
-   
+                <button type='button' class='selectuser' name='selectuser'>
+                    <div class='crds2'>
+                        <div class="addim-con">
+                            <i class='fa fa-user-plus user'></i>
+                        </div>
+                        <p>ADD NEW EMPLOYEE</p>
+                    </div>
+                </button>
             </div>
-          
-            <div class="modal-body ">
+        </div>
+        <!-- END/ADD NEW EMPLOYEE -->
+    </div>
+    <!--END/USER-->
+    <!-- END/FOR USER PROFILE -->
+</div>
+<!--END/MAIN ROW-->
+    
+    
+<!--ADD EMPLOYEE-->
+    
+    <div class="modal-dialog sign-up-modal hide">
+        <div class="modal-content">             
+            <form method="post" action="insert.php" enctype="multipart/form-data">
 
-            <!-- <button type="submit" id="log-in" name='log-in' class="btn btn-danger btn-lg login-button">Back
-                            <span class="glyphicon glyphicon-menu-right"></span>
-                        </button><br><br> -->
-            <!-- form was here -->                 
-                <form method="post" action="insert.php" enctype="multipart/form-data">
-
-
-                <div class="content">
-                        <div class="fld3">
-                            <span class="input input--hoshi">
-                            <input type="file" name="USERIMAGE" id="USERIMAGE" accept="assets/img/userimages/*" required />
-                            </span>
-                        </div>
-
-                    </div>
-                <div class="content">
-                        <div class="fld2">
-                            <span class="input input--hoshi">
-                                <input class="input__field input__field--hoshi" type="text"  id="fn" name="fn" placeholder="First Name"/>
-                                
-                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
-                                    <div class="lck">
-                                        <i class="fa fa-lock lck_icon"></i>
-                                    </div>
-                                </label>
-                            </span>
-                        </div>
-
-                        <div class="fld2">
-                            <span class="input input--hoshi">
-                                <input class="input__field input__field--hoshi" type="text" id="mn" name="mn" placeholder="Middle Name"/>
-                                
-                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
-                                 
-                                </label>
-                            </span>
-                        </div>
-
-                        <div class="fld2">
-                            <span class="input input--hoshi">
-                                <input class="input__field input__field--hoshi" type="text" id="ln" name="ln" placeholder="Last Name"/>
-                                
-                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
-                                  
-                                </label>
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="content">
-                        <div class="fld2">
-                            <span class="input input--hoshi">
-                                <input class="input__field input__field--hoshi" type="text" id="ea" name="ea" placeholder="Email Address"/>
-                                
-                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
-                                    <div class="lck">
-                                        <i class="fa fa-lock lck_icon"></i>
-                                    </div>
-                                </label>
-                            </span>
-                        </div>
-
-                        <div class="fld2">
-                            <span class="input input--hoshi">
-                                <input class="input__field input__field--hoshi" type="text" id="cn" name="cn" placeholder="Contact Number"/>
-                                
-                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
-                                    <div class="lck">
-                                        <i class="fa fa-lock lck_icon"></i>
-                                    </div>
-                                </label>
-                            </span>
-                        </div>
-
-                       
-
-                        <div class="fld3">
-                        <span class="input input--hoshi">
-                        <input type="hidden" id="status" name="status" class="form-control" />
-                        
-                    <select id="pos" name="pos" class="form-control"> 
-                    <option value="Admin">Select Position</option>                     
-                            <option value="Admin">Admin</option>
-                            <option value="Employee">Employee</option>
-                        </select>
-                        </span>
-                        </div>
-
-
-                    </div>
-
-
-                    
-
-                    <div class="content">
-                        <div class="fld1">
-                            <span class="input input--hoshi">
-                                <input class="input__field input__field--hoshi" type="text" id="uname" name="uname" placeholder="Username"/>
-                                
-                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
-                                    <div class="lck">
-                                        <i class="fa fa-lock lck_icon"></i>
-                                    </div>
-                                </label>
-                            </span>
-                        </div>
-
-                    </div>
-                    
-
-                    <div class="content">
-                        <div class="fld1">
-                            <span class="input input--hoshi">
-                                <input class="input__field input__field--hoshi" type="text"id="rpassword" name="rpassword" placeholder="Password"/>
-                                
-                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
-                                    <div class="lck">
-                                        <i class="fa fa-lock lck_icon"></i>
-                                    </div>
-                                </label>
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="content">
-                        <div class="fld1">
-                            <span class="input input--hoshi">
-                                <input class="input__field input__field--hoshi" type="text" id="cpassword" name="cpassword" placeholder="Confirm Password"/>
-                                
-                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
-                                    <div class="lck">
-                                        <i class="fa fa-lock lck_icon"></i>
-                                    </div>
-                                </label>
-                            </span>
-                        </div>
-
-                    </div>
-
-                 
-
-                    
-                  
-                  
-
-                  
-                  
-                    
-                    <div class="content">
-                        <div class="fld3">
-                            <span class="input input--hoshi">
-                            <button type="submit" id="signUpBtn" name='signUpBtn' class="btn btn-danger btn-lg login-button">Sign Up
-                            
-                            </button>
-                            </span>
-                        </div>
-
-                        </div>
-                  
-                   
-                   
-
-
-
-               
-
-
-
-                   
-
-
-                    <!-- <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-user"></span>
-                            </span>
-                            <input id="fn" name="fn" type="text" class="form-control" placeholder="First Name" required />
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-user"></span>
-                            </span>
-                            <input id="mn" name="mn" type="text" class="form-control" placeholder="Middle Name" required />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </span>
-                                <input id="ln" name="ln" type="text" class="form-control" placeholder="Last Name" required />
+                <!-- FOR IMAGE AND ACCESS -->
+                <div class="content1">
+                    <span class="input input--hoshi">
+                        <div class="cont">
+                            <!-- FOR IMAGE -->
+                            <div class="addim-con">
+                                <img id="blah" src="assets\img\userimages\default_user.png" alt="your image" />
                             </div>
-                    </div>
+                            <div class="file-upload">
+                                <label for="USERIMAGE" class="file-upload__label">Upload Image</label>
+                                <input type="file" name="USERIMAGE" id="USERIMAGE" accept="assets/img/userimages/*" class="img-up" onchange="readURL(this);" />
+                            </div>
+                            <!-- END/FOR IMAGE -->
 
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-envelope"></span>
-                            </span>
-                            <input id="ea" name="ea" type="text" class="form-control" placeholder="Email Address" required />
-                        </div>
-                    </div>
+                            <!-- FOR ACCESS -->
+                            <div class="cont2">
+                                <div class="inputs">
+                                    <label>
+                                        <input type="radio" id="admin" name="pos" value="Admin" required />
+                                        <div class="rdio"></div>
+                                        <span>Admin</span>
+                                    </label>
 
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-phone"></span>
-                            </span>
-                            <input id="cn" name="cn" type="text" class="form-control" placeholder="Contact Number" required />
+                                    <label>
+                                        <input type="radio" id="employee" name="pos" value="Employee" required />
+                                        <div class="rdio"></div>
+                                        <span>Employee</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- END/FOR ACCESS -->
                         </div>
-                    </div>  
-                            
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-user"></span>
-                            </span>
-                            <input id="uname" name="uname" type="text" class="form-control" placeholder="Username" required />
-                        </div>
-                    </div>
-                
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-lock"></span>
-                            </span>
-                            <input type="password" id="rpassword" name="rpassword" class="form-control" placeholder="Password" required />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-lock"></span>
-                            </span>
-                            <input type="password" id="cpassword" name="cpassword" class="form-control" placeholder="Confirm Password" required />
-                        </div>
-                    </div>   
-
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="hidden" id="status" name="status" class="form-control" />
-                        </div>
-                    </div>   
-
-                    <input type="file" name="USERIMAGE" id="USERIMAGE" accept="assets/img/userimages/*" required />   
-                            
-                    <div class="form-group text-center">
-                        <div class="input-group">
-                            <select id="pos" name="pos" class="form-control">                      
-                                <option value="Admin">Admin</option>
-                                <option value="Employee">Employee</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group text-center">
-                        <button type="submit" id="signUpBtn" name='signUpBtn' class="btn btn-danger btn-lg login-button">Sign Up
-                            
-                        </button>
-                    </div> -->
-
-                    
-                    
-                </form>
-            
-                <div class="forget-pass">
-                    <br><br> 
+                    </span>
                 </div>
-            </div>
+                <!-- END/FOR IMAGE AND ACCESS -->
+
+
+                <!-- FOR FIRST NAME, MIDDLE NAME , LAST NAME -->
+                <div class="content2">
+                    <div class="cont2">
+
+                        <!-- FOR FIRST NAME -->
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <div class="msg_cont">
+                                    <span class='need'></span>
+                                </div>
+                                <input class="input__field input__field--hoshi" type="text"  id="fn" name="fn" placeholder="First Name *" required/>
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                    <div class="lck">
+                                        <i class="fa fa-user lck_icon"></i>
+                                    </div>
+                                </label>    
+                            </span>
+                        </div>
+                        <!-- END/FOR FIRST NAME -->
+                    
+                        <!-- FOR MIDDLE NAME -->
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <div class="msg_cont">
+                                    <span class='need'></span>
+                                </div>
+                                <input class="input__field input__field--hoshi" type="text" id="mn" name="mn" placeholder="Middle Name" />
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                </label>
+                            </span>
+                        </div>
+                        <!-- END/FOR MIDDLE NAME -->
+
+                        <!-- FOR LAST NAME -->
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <div class="msg_cont">
+                                    <span class='need'></span>
+                                </div>
+                                <input class="input__field input__field--hoshi" type="text" id="ln" name="ln" placeholder="Last Name *" required/>
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                </label>
+                            </span>
+                        </div>
+                        <!--END/FOR LAST NAME -->
+                    </div>
+                </div>
+                <!-- END/FOR FIRST NAME, MIDDLE NAME , LAST NAME -->
+
+                <!-- FOR USER NAME, PASSWORD , CONFIRM PASSWORD -->
+                <div class="content2">
+                    <div class="cont2">
+
+                        <!-- FOR USERNAME -->
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <div class="msg_cont">
+                                    <span class='need'></span>
+                                </div>
+                                <input class="input__field input__field--hoshi" type="text"  id="uname" name="uname" placeholder="Username *" required/>
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                    <div class="lck">
+                                        <i class="fa fa-lock lck_icon"></i>
+                                    </div>
+                                </label>
+                            </span>
+                        </div>
+                        <!-- END/FOR USERNAME -->
+
+                        <!-- FOR PASSWORD -->
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <div class="msg_cont">
+                                    <span class='need'></span>
+                                </div>
+                                <input class="input__field input__field--hoshi" type="password" id="rpassword" name="rpassword" placeholder="Password *"  onkeyup='check();' required/>
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                </label>
+                            </span>
+                        </div>
+                        <!-- END/FOR PASSWORD -->
+
+                        <!-- FOR CONFIRM PASSWORD -->
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <div class="msg_cont">
+                                    <span id='correctpass'></span>
+                                </div>
+                                <input class="input__field input__field--hoshi" type="password" id="cpassword" name="cpassword" placeholder="Confirm Password *"  onkeyup='check();' required/>
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">  
+                                </label>
+                            </span>
+                        </div>
+                        <!-- END/FOR CONFIRM PASSWORD -->      
+                    </div>
+                </div>
+                <!-- END/FOR USER NAME, PASSWORD , CONFIRM PASSWORD -->
+               
+                <!-- FOR EMAIL ADD, CONTACT NUMBER , COMPANY POSITION -->
+                <div class="content2">
+                    <div class="cont2">
+
+                        <!-- FOR EMAIL ADD -->
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                            <div class="msg_cont">
+                                <span class='need'></span>
+                            </div>
+                            <input class="input__field input__field--hoshi" type="text"  id="ea" name="ea" placeholder="Email Address *" required/>
+                            <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                <div class="lck">
+                                    <i class="fa fa-at lck_icon"></i>
+                                </div>
+                            </label>
+                            </span>
+                        </div>
+                        <!-- END/FOR EMAIL ADD -->
+                        
+                        <!-- FOR CONTACT NUMBER -->
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <div class="msg_cont">
+                                    <span class='need'></span>
+                                </div>
+                                <input class="input__field input__field--hoshi" type="text" id="cn" name="cn" placeholder="Contact Number *" required/>
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                    <div class="lck">
+                                        <i class="fa fa-phone lck_icon"></i>
+                                    </div>
+                                </label>
+                            </span>
+                        </div>
+                        <!--END/FOR CONTACT NUMBER -->
+
+                        <!-- FOR CONTACT NUMBER -->
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <div class="msg_cont">
+                                    <span class='need'></span>
+                                </div>
+                                <input class="input__field input__field--hoshi" type="text" id="cp" name="cp" placeholder="Company Position *" required/>
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                    <div class="lck">
+                                        <i class="fa fa-briefcase lck_icon"></i>
+                                    </div>
+                                </label>
+                            </span>
+                        </div>
+                        <!-- END/FOR CONTACT NUMBER -->
+                    </div>
+                </div>
+                <!-- END/FOR EMAIL ADD, CONTACT NUMBER , COMPANY POSITION -->
+
+                <!-- FOR BUTTON UPDATE -->
+                <div class="content2">
+                    <div class="cont2">
+                        <div class="fld2">
+                            <span class="input input--hoshi">
+                                <div class="grp_bts">
+                                    <button type="submit" id="signUpBtn" name='signUpBtn' class="btn btn-danger sgnup-button">Sign Up
+                                    </button>
+                                    <button type="button" id="signUpBtnDum" name='signUpBtnDum' class="btn btn-danger sgnup-buttondum">Sign Up
+                                    </button>
+                                </div>
+                            </span>
+                       </div>
+                    </div>
+                </div>
+                <!--END/ FOR BUTTON UPDATE -->
+                  
+            </form>
         </div>
     </div>
-
-
-
+    
+    
 <!-- Latest compiled and minified JavaScript -->
     <script
         src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
-         <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>   
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    <script type="text/javascript" src="assets/js/admin-clock.js"></script> 
+    <script type="text/javascript" src="assets/js/user_timeinout.js"></script>
     <script type="text/javascript" src="assets/js/admin.js"></script>
     <script type="text/javascript" src="assets/js/announce.js"></script>
-    <script type="text/javascript" src="assets/js/clock.js"></script> 
-    <script type="text/javascript" src="assets/js/user_timeinout.js"></script>
-   
+    <script type="text/javascript" src="assets/js/img.js"></script>
 
-    
-<!-- 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script> -->
 </body>
-
-
 </html>

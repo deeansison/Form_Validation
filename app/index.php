@@ -59,13 +59,16 @@
     <title>Kestrel-DDM</title>
 </head>
 
+<body>
 <header>
 
+    <!-- FOR ICON -->
     <div class="icon-bar">
         <a id="openBtn" onclick="openNav()"><p id="so">ANNOUNCEMENTS</p><i class='fa fa-bell faa-ring animated '></i></a> 
-        
     </div>
+    <!--END/ FOR ICON -->
 
+    <!-- FOR SIDENAV ANNOUNCEMENT -->
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         
@@ -90,9 +93,9 @@
             }
         ?>
     </div>
-</header>
+    <!-- FOR SIDENAV ANNOUNCEMENT -->
 
-<body>
+</header>
 
     <div id="overlay" onclick="closeNav()"></div>
 
@@ -117,8 +120,8 @@
                                         echo'<img class="ann-img" src="'.$row['user_image'].'" width="10%" height="10%" />';
                                     echo '</div>';
                                     echo'<div class="p-con">';
-                                        echo"<p id='usr'>".$row['first_name']." ".$row['middle_name']." ".$row['last_name']."</p>";
-                                        echo"<p id='ps'>".$row['position']."</p>";
+                                        echo"<p id='usr'>".$row['first_name']." ".$row['last_name']."</p>";
+                                        echo"<p id='ps'>".$row['company_position']."</p>";
                                     echo '</div>';
                                 echo"</div>";
                             echo"</button>";

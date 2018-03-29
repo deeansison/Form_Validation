@@ -1,40 +1,29 @@
-.kestrel {
-  width: 100%;
-  background-color: #0c0c0c;
-  float: right;
-  z-index: 1; }
-  .kestrel img {
-    width: 20px;
-    height: 20px; }
-
-.clockdate-wrapper {
-  background-color: #ffffff;
+body .clockdate-wrapper {
   padding-top: 20px;
   padding-right: 20px;
   position: fixed;
-  z-index: 1;
+  z-index: -1;
   width: 100%;
   text-align: right; }
-  .clockdate-wrapper #clock {
+  body .clockdate-wrapper #clock {
     background-color: #ffffff;
     font-family: sans-serif;
     font-size: 20px;
     text-shadow: 0px 0px 1px #fff;
     color: #050404; }
-  .clockdate-wrapper #clock span {
+  body .clockdate-wrapper #clock span {
     color: #888;
     text-shadow: 0px 0px 1px;
     font-size: 30px; }
-  .clockdate-wrapper #date {
+  body .clockdate-wrapper #date {
     font-size: 13px;
     font-family: arial,sans-serif;
     color: #050404; }
-
-.icon-bar {
+body .icon-bar {
   position: fixed;
   margin-top: 20px;
   z-index: 2; }
-  .icon-bar a {
+  body .icon-bar a {
     position: relative;
     left: -100px;
     width: 180px;
@@ -51,22 +40,26 @@
     font-size: 30px;
     cursor: pointer;
     padding: 5px; }
-    .icon-bar a #so {
+    body .icon-bar a #so {
       margin-right: 50px;
       font-size: 15px;
       display: inline-block; }
-    .icon-bar a #pr {
+    body .icon-bar a #pr {
       margin-right: 50px;
       font-size: 15px;
       display: inline-block; }
-
-.icon-bar a:hover {
+body .icon-bar a:hover {
   background-color: #DD2018;
   left: 0; }
-
-.active {
+body .active {
   background-color: #DD2018 !important; }
-
+body .logo {
+  text-align: center; }
+  body .logo img {
+    z-index: 2;
+    margin-top: 20px;
+    height: 100px;
+    width: 300px; }
 body .user-cont {
   position: relative;
   background-color: #ffffff;
@@ -78,21 +71,13 @@ body .user-cont {
   align-items: center;
   text-align: center; }
   body .user-cont .clock-cont {
-    margin: 0%;
-    padding-top: 10px;
+    margin-top: 50px;
+    padding: 0;
     width: 100%;
-    background-color: #ffffff;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; }
-    body .user-cont .clock-cont .logo {
-      text-align: center; }
-      body .user-cont .clock-cont .logo img {
-        margin-bottom: 30px;
-        height: 100px;
-        width: 300px; }
     body .user-cont .clock-cont .im-con {
       background-color: black;
       height: 142px;
@@ -131,7 +116,8 @@ body .user-cont {
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center; }
+      text-align: center;
+      margin-bottom: 5px; }
       body .user-cont .clock-cont .btns .btnin {
         background-color: white;
         color: #0c0c0c;
@@ -139,7 +125,28 @@ body .user-cont {
         border-radius: 0%;
         text-align: center;
         font-size: 15px;
-        width: 250px; }
+        width: 250px;
+        z-index: 0;
+        display: inline-block;
+        position: relative;
+        cursor: pointer; }
+      body .user-cont .clock-cont .btns .btnin:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #DD2018;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition: transform .5s ease-out; }
+      body .user-cont .clock-cont .btns .btnin:hover:before {
+        transform: scaleX(1); }
+      body .user-cont .clock-cont .btns .btnin:hover {
+        color: #fff;
+        transition: 0.6s; }
       body .user-cont .clock-cont .btns .btnout {
         background-color: white;
         color: #0c0c0c;
@@ -147,27 +154,85 @@ body .user-cont {
         border-radius: 0%;
         text-align: center;
         font-size: 15px;
-        width: 250px; }
+        width: 250px;
+        z-index: 0;
+        display: inline-block;
+        position: relative;
+        cursor: pointer; }
+      body .user-cont .clock-cont .btns .btnout:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #DD2018;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition: transform .5s ease-out; }
+      body .user-cont .clock-cont .btns .btnout:hover:before {
+        transform: scaleX(1); }
+      body .user-cont .clock-cont .btns .btnout:hover {
+        color: #fff;
+        transition: 0.6s; }
       body .user-cont .clock-cont .btns .m-accounts {
-        margin-top: 2px;
         background-color: white;
         color: #0c0c0c;
         border: #1e1e1e1f solid 1px;
         border-radius: 0%;
         text-align: center;
         font-size: 15px;
-        width: 250px; }
-      body .user-cont .clock-cont .btns .btnin:hover {
+        width: 250px;
+        z-index: 0;
+        display: inline-block;
+        position: relative;
+        cursor: pointer; }
+      body .user-cont .clock-cont .btns .m-accounts:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background-color: #DD2018;
-        transition: 0.2s;
-        color: white; }
-      body .user-cont .clock-cont .btns .btnout:hover {
-        background-color: #DD2018;
-        transition: 0.2s;
-        color: white; }
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition: transform .5s ease-out; }
+      body .user-cont .clock-cont .btns .m-accounts:hover:before {
+        transform: scaleX(1); }
       body .user-cont .clock-cont .btns .m-accounts:hover {
+        color: #fff;
+        transition: 0.6s; }
+      body .user-cont .clock-cont .btns .p-announcements {
+        background-color: white;
+        color: #0c0c0c;
+        border: #1e1e1e1f solid 1px;
+        border-radius: 0%;
+        text-align: center;
+        font-size: 15px;
+        width: 250px;
+        z-index: 0;
+        display: inline-block;
+        position: relative;
+        cursor: pointer; }
+      body .user-cont .clock-cont .btns .p-announcements:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background-color: #DD2018;
-        transition: 0.2s;
-        color: white; }
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition: transform .5s ease-out; }
+      body .user-cont .clock-cont .btns .p-announcements:hover:before {
+        transform: scaleX(1); }
+      body .user-cont .clock-cont .btns .p-announcements:hover {
+        color: #fff;
+        transition: 0.6s; }
 
 /*# sourceMappingURL=user.css.map */

@@ -65,16 +65,22 @@
     $lastName  =   $_POST['ln'];
     $emailAdd  =   $_POST['ea'];
     $contNum  =   $_POST['cn'];
+    $compPos  =   $_POST['cp'];
     $userName  =   $_POST['uname'];
     $password  =   $_POST['rpassword'];
+    $cpassword  =   $_POST['cpassword'];
     $pos = $_POST['pos'];
-    $status =   $_POST['status'];
+    // $status =   $_POST['status'];
     
+  
 
-    $connection->query("INSERT INTO user_credentials (first_name, middle_name, last_name, email_address, contact_number, username, password, user_image, status, position) VALUES ('$firstName', '$middleName', '$lastName', '$emailAdd', '$contNum', '$userName','$password', '".$newname."' ,'Out' , '$pos')");
+ 
+        $connection->query("INSERT INTO user_credentials (first_name, middle_name, last_name, email_address, contact_number, company_position, username, password, user_image, status, position) VALUES ('$firstName', '$middleName', '$lastName', '$emailAdd', '$contNum','$compPos', '$userName','$password', '".$newname."' ,'Out' , '$pos')");
 
-    header("Location:admin.php");
-
+        header("Location:admin.php");
+    
+    
+ 
 }
 
 
@@ -159,7 +165,7 @@ if(isset($_POST['updateButton'])){
 
 
 
-if(isset($_POST['updatePriv'])){
+if(isset($_POST['update-uname'])){
 
     $host = "localhost";  
     $username = "root";  
@@ -191,14 +197,18 @@ if(isset($_POST['updatePriv'])){
                 $count = $statement->rowCount();  
                 if($count > 0){  
 
-                    $cpassword  =   $_POST['cpassword'];
+                    // $cpassword  =   $_POST['cpassword'];
                     $userName  =   $_POST['uname'];
                     $upuserName  =   $_POST['un'];
-                    $password  =   $_POST['rpassword'];
-                    $pos = $_POST['pos'];
+                    // $password  =   $_POST['rpassword'];
+                    // $pos = $_POST['pos'];
                  
-                    $connection->query("UPDATE user_credentials SET username = '$upuserName',  password = '$password' , position = '$pos' 
-                              WHERE username='$userName' ");
+                    // $connection->query("UPDATE user_credentials SET username = '$upuserName',  password = '$password' , position = '$pos' 
+                    //           WHERE username='$userName' ");
+
+                    $connection->query("UPDATE user_credentials SET username = '$upuserName' 
+                        WHERE username='$userName' ");
+
                     $connection->query("UPDATE t_in_out SET username = '$upuserName'
                                 WHERE username='$userName' ");
                     $connection->query("UPDATE announcement SET username = '$upuserName'
@@ -266,6 +276,159 @@ echo " alert('Wrong Password');
 
 
 }
+
+
+
+
+
+if(isset($_POST['update-password'])){
+
+    $host = "localhost";  
+    $username = "root";  
+    $password = "";  
+    $database = "special_project";  
+    $message = "";  
+
+
+   
+    
+    try{  
+        $connect = new PDO("mysql:host=$host; dbname=$database", $username, $password );  
+        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+
+         
+            if(empty($_POST["password"])){  
+                $message = '<label>No User Selected</label>';  
+            } 
+
+            if(!empty($_POST["password"])){  
+                $query = "SELECT * FROM user_credentials WHERE password = :password AND username = :uname ";  
+                $statement = $connect->prepare($query);  
+                $statement->execute(  
+                    array(  
+                        'uname'     =>     $_POST["uname"],  
+                        'password'     =>     $_POST["password"]  
+                    )  
+                );  
+                $count = $statement->rowCount();  
+                if($count > 0){  
+
+                    // $cpassword  =   $_POST['cpassword'];
+                    $userName  =   $_POST['uname'];
+                    
+                    $password  =   $_POST['rpassword'];
+                    // $pos = $_POST['pos'];
+                 
+                    // $connection->query("UPDATE user_credentials SET username = '$upuserName',  password = '$password' , position = '$pos' 
+                    //           WHERE username='$userName' ");
+
+                    $connection->query("UPDATE user_credentials SET password = '$password' 
+                        WHERE username='$userName' ");
+
+
+
+
+                    
+
+                    header("location:logout.php");  
+                }
+                       
+                else{  
+                    echo "<script>";
+echo " alert('Wrong Password');      
+        window.location.href='profile.php?view=".$_POST['uname']."';
+</script>";
+                 
+
+                }  
+            } 
+       
+    }   
+    
+    catch(PDOException $error){  
+        $message = $error->getMessage();  
+    }  
+
+
+}
+
+
+
+
+if(isset($_POST['update-access'])){
+
+    $host = "localhost";  
+    $username = "root";  
+    $password = "";  
+    $database = "special_project";  
+    $message = "";  
+
+
+   
+    
+    try{  
+        $connect = new PDO("mysql:host=$host; dbname=$database", $username, $password );  
+        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+
+         
+            if(empty($_POST["password"])){  
+                $message = '<label>No User Selected</label>';  
+            } 
+
+            if(!empty($_POST["password"])){  
+                $query = "SELECT * FROM user_credentials WHERE password = :password AND username = :uname ";  
+                $statement = $connect->prepare($query);  
+                $statement->execute(  
+                    array(  
+                        'uname'     =>     $_POST["uname"],  
+                        'password'     =>     $_POST["password"]  
+                    )  
+                );  
+                $count = $statement->rowCount();  
+                if($count > 0){  
+
+                    // $cpassword  =   $_POST['cpassword'];
+                    $userName  =   $_POST['uname'];
+                    
+                    // $password  =   $_POST['rpassword'];
+                    $pos = $_POST['pos'];
+                 
+                    // $connection->query("UPDATE user_credentials SET username = '$upuserName',  password = '$password' , position = '$pos' 
+                    //           WHERE username='$userName' ");
+
+                    $connection->query("UPDATE user_credentials SET position = '$pos' 
+                        WHERE username='$userName' ");
+
+
+
+
+                    
+
+                    header("location:logout.php");  
+                }
+                       
+                else{  
+                    echo "<script>";
+echo " alert('Wrong Password');      
+        window.location.href='profile.php?view=".$_POST['uname']."';
+</script>";
+                 
+
+                }  
+            } 
+       
+    }   
+    
+    catch(PDOException $error){  
+        $message = $error->getMessage();  
+    }  
+
+
+}
+
+
+
+
 
 
 

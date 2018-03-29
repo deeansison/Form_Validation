@@ -1,100 +1,676 @@
 //Body
+$main-color-gray-opacity: darken(#1e1e1e, 50%);;
+$main-color-gray: #1e1e1e;
+$red: #DD2018;
+$white: white;
 
 
-.prof-main-row{
-padding: 0;
-margin: 0;
+//------------------------START OF CODE------------------------------
+//ICONS
+.icon-bar-profile {
+    position: fixed;
+    margin-top: 20px;
+    z-index: 2;
+        
+    a {
+        position: relative;
+        left: -70px;
+        width: 150px;
+        transition: 0.3s;
+        height: auto;
+        background-color: $main-color-gray-opacity;
+        opacity: 0.8;
+        border: $white solid 1px;
+        display: block;
+        text-align: left;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        color: $white;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 5px;
+  
+        #so{
+            margin-right: 30px;
+            font-size: 15px;
+            display: inline-block;
+        }
+        #ho{
+            margin-right: 50px;
+            font-size: 15px;
+            display: inline-block;
+        }
+    }
+
+    //HOVER
+    a:hover {
+        background-color: $red;
+        left: 0;
+      }
+}
+  
+//------------------------END OF CODE------------------------------
+
+
+//------------------------START OF CODE------------------------------
+
+.cpass{
     width: 100%;
     
-    .prof-emp-box{
-        padding-top: 100px;
-        height: 100%;
-       
-    
-       
+    p{
+        margin-left: 35px;
+    }
+}
 
-        .card {
-            /* Add shadows to create the "card" effect */
-           
+ //MAIN CONTAINER
+.prof-main-cont{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    //EMPLOYEE CONTAINER
+    .prof-emp-cont{
+        padding-top: 70px;
+        height: 100%;
+        
+        //EMPLOYEE CONTAINER INFOS
+        .emp-cont-infos {
             width: 100%;
-           margin: 0;
-           text-align: center;
-            img{
-                
-                width: 50%;
-                height: 50%;
-            
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+
+            //EMPLOYEE IMAGE
+            .im-cont{
+                height: 150px;
+                width: 150px;
+                overflow: hidden;
+                border-radius: 50%;
+   
+                .emp-img{
+                    height:100%;
+                    width:100%;
+                    object-fit: cover;
+                }
+
             }
-            .container {
-                width: 100%;
-                padding-top: 30px;
+            //END/EMPLOYEE IMAGE
+
+            //EMPLOYEE INFOS
+            .info-cont {
+                width: 70%;
+                padding: 30px 0px 15px 0px;
+            }
+            //END/EMPLOYEE INFOS
+        
+            //EMPLOYEE BUTTONS
+            .update-buts{
+                width: 70%;
+                height: 100%;
+            
+                .edit-profile-but{
+                    top: 0px;
+                    left: 0px;
+                    display:inline-block;
+                    position:relative;
+                    background-color: $white;
+                    cursor:pointer;
+                    border: #1e1e1e1f solid 1px;
+                    z-index:0;
+                    color: #0c0c0c;
+                    border-radius: 0%;
+                    text-align: center;
+                    width: 100%;
+                    margin-top: 5px;
+                }
+
+                //HOVER FOR *edit-profile-but
+                .edit-profile-but:before {
+                    content: "";
+                    position: absolute;
+                    z-index:-1;
+                    top: 0;  left: 0;  right: 0;  bottom: 0;
+                    background-color: $red;
+                    transform: scaleX(0);
+                    transform-origin: 0 50%;
+                    transition: transform .5s ease-out;
+                }
+                
+                .edit-profile-but:hover:before{
+                    transform: scaleX(1);
+                }
+    
+                .edit-profile-but:hover{
+                    color: #fff;
+                    transition: 0.6s
+                }
+                //END/HOVER FOR *edit-profile-but
+
+
+                //HOVER FOR *edit-security-but
+                .edit-security-but{
+                    top: 0px;
+                    left: 0px;
+                    display:inline-block;
+                    position:relative;
+                    background-color: $white;
+                    cursor:pointer;
+                    border: #1e1e1e1f solid 1px;
+                    z-index:0;
+                    color: #0c0c0c;
+                    border-radius: 0%;
+                    text-align: center;
+                    width: 100%;
+                    margin-top: 5px;
+                    font-size: 13px;
+                }
+
+                .edit-security-but:before{
+                    content: "";
+                    position: absolute;
+                    z-index:-1;
+                    top: 0;  left: 0;  right: 0;  bottom: 0;
+                    background-color: $red;
+                    transform: scaleX(0);
+                    transform-origin: 0 50%;
+                    transition: transform .5s ease-out;
+                }
+
+                .edit-security-but:hover:before{
+                    transform: scaleX(1);
+                }
+             
+                .edit-security-but:hover{
+                    color: #fff;
+                    transition: 0.6s
+                }                      
+                //HOVER FOR *edit-security-but
+            }
+            //END/EMPLOYEE BUTTONS 
+        }
+        //END/EMPLOYEE CONTAINER INFOS
+
+        .mod-bod-dlt-emp{
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+
+        .mod-footer-dlt-emp{
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+
+            .span-dlt-emp{
+                width: 30%;
+                margin-right: 1%;
+                margin-left: 1%;
+
+                .edit-profile-but{
+                    top: 0px;
+                    left: 0px;
+                    display:inline-block;
+                    position:relative;
+                    background-color: $white;
+                    cursor:pointer;
+                    border: #1e1e1e1f solid 1px;
+                    z-index:0;
+                    color: #0c0c0c;
+                    border-radius: 0%;
+                    text-align: center;
+                    width: 100%;
+                    margin-top: 5px;
+                }
+        
+                //HOVER FOR *edit-profile-but
+                .edit-profile-but:before {
+                    content: "";
+                    position: absolute;
+                    z-index:-1;
+                    top: 0;  left: 0;  right: 0;  bottom: 0;
+                    background-color: $red;
+                    transform: scaleX(0);
+                    transform-origin: 0 50%;
+                    transition: transform .5s ease-out;
+                }
+                
+                .edit-profile-but:hover:before{
+                    transform: scaleX(1);
+                }
+        
+                .edit-profile-but:hover{
+                    color: #fff;
+                    transition: 0.6s
+                }
+                //END/HOVER FOR *edit-profile-but 
             }
         }
-        
-        /* On mouse-over, add a deeper shadow */
-        
-        
-        /* Add some padding inside the card container */
-       
-
     }
+    //END/EMPLOYEE CONTAINER
+
+
+    //MODAL BODY
+    .mod-cont{
+        box-shadow: none;
+    }
+
+    .mod-body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+
+        //FOR INPUT
+        .input {
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            width: calc(106% - 2em);
+            vertical-align: top;
+
+            //FOR BUTTONS
+            .grp_bts{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+             
+                .done-button{
+                    display:inline-block;
+                    position:relative;
+                    background-color: white;
+                    cursor:pointer;
+                    border: #1e1e1e1f solid 1px;
+                    z-index:0;
+                    color: #0c0c0c;
+                    border-radius: 0%;
+                    text-align: center;
+                    width: 50%;
+                }
+
+                .done-button:before {
+                    content: "";
+                    position: absolute;
+                    z-index:-1;
+                    top: 0;  left: 0;  right: 0;  bottom: 0;
+                    background-color: $red;
+                    transform: scaleX(0);
+                    transform-origin: 0 50%;
+                    transition: transform .5s ease-out;
+                }
+
+                .done-button:hover:before{ 
+                    transform: scaleX(1);
+                }
+                     
+                .done-button:hover{
+                    color: #fff;
+                    transition: 0.6s
+                }
+                        
+            }
+            //END/FOR BUTTONS
+
+            //FOR MESSAGE    
+            .msg-cont{
+                width: 100%;
+                height: 20px;
+                position: relative;
+                
+                .msg-cont-text{
+                    position: absolute;
+                    height: 20px;
+                    width: 400px;
+                    font-size: 10px;
+                    color: $red;
+                }
+                #msg-cont-text-username{
+                    position: absolute;
+                    height: 20px;
+                    width: 400px;
+                    font-size: 10px;
+                    color: #1e1e1e1f;
+                }
+                #msg-cont-text-password{
+                    position: absolute;
+                    height: 20px;
+                    width: 400px;
+                    font-size: 10px;
+                    color: #1e1e1e1f;
+                }
+                #msg-cont-text-access{
+                    position: absolute;
+                    height: 20px;
+                    width: 400px;
+                    font-size: 10px;
+                    color: #1e1e1e1f;
+                }
+            }
+            //END/FOR MESSAGE 
+
+            //FOR ICON
+            .icon-cont{
+                margin-top: 38px;
+                text-align: left;
+                 z-index: 2;
+                
+                .spcfc-icon{
+                    font-size: 20px;
+                    color:  #1e1e1e;
+                }
+                #spcfc-icon-username{
+                    font-size: 20px;
+                    color: #1e1e1e1f;
+                }
+                #spcfc-icon-password{
+                    font-size: 20px;
+                    color: #1e1e1e1f;
+                }
+                #spcfc-icon-access{
+                    font-size: 20px;
+                    color: #1e1e1e1f;
+                }
+            }
+            //END/FOR ICON
+        }
+        //END/FOR INPUT
+                
+        //FOR FIELD ANIMATION
+        .input__field {
+            position: relative;
+            display: block;
+            float: right;
+            padding: 2px;
+            width: 150%;
+            border: none;
+            border-radius: 0;
+            font-size: 20px;
+            -webkit-appearance: none;             
+        }
+        .input__field:focus {
+            outline: none;
+        }
+
+        .input--hoshi {
+            overflow: hidden;
+        }
+
+        .input__field--hoshi {
+            padding: 1px 0px 15px 0px;
+            width: 100%;
+            background: transparent;
+            color: #1e1e1e;
+            margin-bottom: 0;
+            padding-left: 24px;
+        }
+        .input__label--hoshi {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: calc(135% - 1em);
+            text-align: left;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #1e1e1e1f;
+            opacity: 1; /* Firefox */
+        }
+
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #1e1e1e1f;
+        }
+
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: #1e1e1e1f;
+        }
+
+        .input__label--hoshi::before,
+        .input__label--hoshi::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 10px);
+            border-bottom: 1px solid #1e1e1e1f;
+        }
+
+        .input__label--hoshi::after {
+            border-bottom: 4px solid;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-transition: -webkit-transform 0.3s;
+            transition: transform 0.3s;
+        }
+
+        .input__label--hoshi-color-1::after {
+            border-bottom: 1.5px solid  hsl(7, 100%, 15%);
+        }
+
+        .input__field--hoshi:focus + .input__label--hoshi::after,
+        .input--filled .input__label--hoshi::after {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+
+        .input__field--hoshi:focus + .input__label--hoshi .input__label-content--hoshi,
+        .input--filled .input__label-content--hoshi {
+            -webkit-animation: anim-1 0.3s forwards;
+            animation: anim-1 0.3s forwards;
+        }
+
+        @-webkit-keyframes anim-1 {
+            50% {
+                opacity: 0;
+                -webkit-transform: translate3d(1em, 0, 0);
+                transform: translate3d(1em, 0, 0);
+            }
+            51% {
+                opacity: 0;
+                -webkit-transform: translate3d(-1em, -40%, 0);
+                transform: translate3d(-1em, -40%, 0);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translate3d(0, -40%, 0);
+                transform: translate3d(0, -40%, 0);
+            }
+        }
+
+        @keyframes anim-1 {
+            50% {
+                opacity: 0;
+                -webkit-transform: translate3d(1em, 0, 0);
+                transform: translate3d(1em, 0, 0);
+            }
+            51% {
+                opacity: 0;
+                -webkit-transform: translate3d(-1em, -40%, 0);
+                transform: translate3d(-1em, -40%, 0);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translate3d(0, -40%, 0);
+                transform: translate3d(0, -40%, 0);
+            }
+        }
+        //END/FOR FIELD ANIMATION
+
+        //FOR RADIO BUTTON
+        .rb-label{
+            margin-top: 7px;
+            margin-right: 20px;
+            margin-bottom: 15px;
+        }
+
+        #admin {
+            display: none;
+            &:checked ~ .rdio:after {
+                display: block;
+            }
+        }
+
+        #employee {
+            display: none;
+            &:checked ~ .rdio:after {
+              display: block;
+            }
+        }
+
+        #admin-span{
+            font-weight: normal;
+            font-size: 16px;
+            margin-left: 6px;
+        }
+        #employee-span{
+            font-weight: normal;
+            font-size: 16px;
+            margin-left: 6px;
+        }
+          
+        .rdio {
+            display: inline-block;
+            height: 14px;
+            width: 14px;
+            border: #1e1e1e1f solid 1px;
+            position: relative;
+            border-radius: 50%;
+
+            &:after {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 14px;
+                width: 14px;
+                content: '';
+                background-color: $red;
+                border-radius: 50%;
+            }
+        }
+        //END/FOR RADIO BUTTON
+
+        //FOR BUTTONS
+        .grp_bts{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            .done-button{
+                display:inline-block;
+                position:relative;
+                background-color: white;
+                cursor:pointer;
+                border: #1e1e1e1f solid 1px;
+                z-index:0;
+                color: #0c0c0c;
+                border-radius: 0%;
+                text-align: center;
+                width: 100%;
+            }
+
+            .done-button:before {
+                content: "";
+                position: absolute;
+                z-index:-1;
+                top: 0;  left: 0;  right: 0;  bottom: 0;
+                background-color: $red;
+                transform: scaleX(0);
+                transform-origin: 0 50%;
+                transition: transform .5s ease-out;
+            }
+
+            .done-button:hover:before{ 
+                transform: scaleX(1);
+            }
+    
+            .done-button:hover{
+                color: #fff;
+                transition: 0.6s
+            }
+        }
+        //END/FOR BUTTONS
+    }
+    //END/MODAL BODY
+
+
+    //EMPLOYEE DATA BOX
 
     .emp-data-box{
-        padding: 100px 10px 50px 10px;
-        min-height: 100vh;
+        padding: 70px 50px 30px 50px;
         height: auto;
-      
-    float: right;
-   
- 
+        float: right;
 
-    #customers {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-        
-    }
-    
-    #customers td, #customers th {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-    
-    #customers tr:nth-child(even){background-color: #f2f2f2;}
-    
-    #customers tr:hover {background-color: #ddd;}
-    
-    #customers th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #4CAF50;
-        color: white;
-    }
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
 
+            th {
+                padding: 8px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: rgb(252, 252, 252);
+                color: rgb(0, 0, 0);
+            }
+
+            td{
+                padding: 8px;
+            }
+
+        }
+    
+        #customers tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+    
+        #customers tr:hover {
+            background-color: #ddd;
+        }
     }
+    //END/EMPLOYEE DATA BOX
+
 }
+//END/MAIN CONTAINER
+
+
+//------------------------END OF CODE------------------------------
 
 
 
-//update profile
+//------------------------START OF CODE------------------------------
+//RESPONSIVE
 
-#updateButton{
-    background-color: #4CAF50;
-}
-
-
-//END OF UPDATE PROFILE
+//UPDATE PROFILE
 
 @media screen and (max-width: 768px){
 
     .emp-data-box{
-
-
-width:100%;
+        width:100%;
     }
       
     .prof-emp-box{
         width: 100%;
     }
-    }
+
+}
+
+//END/UPDATE PROFILE
+
+//------------------------END OF CODE------------------------------
+    

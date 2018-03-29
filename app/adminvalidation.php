@@ -14,6 +14,10 @@
     <title>Kestrel-DDM</title>
 </head>
 
+
+
+<body onload="startTime()">
+
 <header>
 <!-- <div class="kestrel">
 <img src="assets/img/kestrellogo.png" alt="">
@@ -23,6 +27,7 @@
 <a href="#" ><p id="pr">PROFILE</p><i class='fa fa-user'></i></a> 
 <a href="logout.php" ><p id="so">LOGOUT</p><i class='fa fa-sign-out'></i></a> 
 
+
         
     </div>
     <div id="clockdate">
@@ -31,6 +36,9 @@
                     <div id="date"></div>
                 </div>
             </div>
+            <div class="logo">
+        <img src="assets/img/kestrellogo.png" alt="">
+    </div>
 <?php
                             include('connection.php');
                             session_start();      
@@ -52,14 +60,7 @@
                         ?>
 
 
-
-
-
 </header>
-
-<body onload="startTime()">
-
-
     <div class="user-cont">
         
         <div class="clock-cont">                         
@@ -70,9 +71,7 @@
                 </div> -->
             </div>
 
-            <div class="logo">
-        <img src="assets/img/kestrellogo.png" alt="">
-    </div>
+    
             <?php
                 $db = mysqli_connect("localhost","root","","special_project");
                 $uname = $_SESSION["username"];
@@ -110,6 +109,15 @@
             <div class="btns">
                <a href="admin.php" class="btn btn-info m-accounts" role="button">MANAGE ACCOUNTS</a>
             </div>
+            <div class="btns">
+            <button type="button" class="btn btn-info p-announcements" data-toggle="modal" data-target="#myModal">ANNOUNCEMENT</button>
+            </div>
+
+            <div class="btns">
+               <a href="all-report.php" class="btn btn-info m-accounts" role="button">REPORTS</a>
+            </div>
+
+            
         </div>
 
         
@@ -118,7 +126,40 @@
         </div>
     </div>
 
+ <!-- Modal -->
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-m">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+         
 
+
+        <div class= 'rem-post'>
+                        <textarea  id="ann" name="ann" type="text" class="form-control" placeholder="Type Here..." ></textarea>
+                        
+                        <div class= 'b-sub'>
+                            <button type="submit" id="annpost" name='annpost'  class="btn btn-success">Post</button>
+                        </div>
+                        </div>
+
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+        <div class="btns">
+               <a href="reminders.php" class="btn btn-info m-accounts" role="button">VIEW ANNOUNCEMENTS</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
      
  <!-- </form> -->
@@ -133,6 +174,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/js/clock.js"></script> 
     <script type="text/javascript" src="assets/js/user_timeinout.js"></script>
+    <script type="text/javascript" src="assets/js/announce.js"></script>
     <!-- <script type="text/javascript" src="assets/js/admin.js"></script>  -->
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script> -->
 </body>

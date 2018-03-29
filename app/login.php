@@ -86,10 +86,15 @@
 
     <div class="main-container">    
     
+    
         <div class="icon-bar_back">
             <a href="logout.php"><p id="bck">BACK</p><i class='fa fa-arrow-left faa-horizontal animated '></i></a> 
         </div> 
 
+        <div class="logo">
+        <img src="assets/img/kestrellogo.png" alt="">
+    </div>
+    
         <div class="modal-body">
             <div class="conts">
                 <form action="login.php" method="post" role="form">

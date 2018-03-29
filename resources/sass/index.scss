@@ -4,17 +4,18 @@ $red: #DD2018;
 $white: white;
 
 
-
+//ICON
 .icon-bar {
     position: fixed;
     margin-top: 20px;
     z-index: 2;
+    
     a {
       position: relative;
       left: -150px;
       width: 230px;
       transition: 0.3s;
-    height: auto;
+        height: auto;
     background-color: $main-color-gray-opacity;
     opacity: 0.8;
     border: $white solid 1px;
@@ -337,9 +338,19 @@ $white: white;
 
 
 //LOGIN PHP
+.logo{
+    text-align: center;
+
+    img{
+        margin-top:20px; 
+        //margin-bottom:40px;
+        height: 100px;
+        width: 300px;
+    } 
+}
 .main-container{
     background-color: $white;
-
+    
     .modal-body{
         position: relative;
         background-color: $white;
@@ -352,7 +363,6 @@ $white: white;
         text-align: center;
            
        .conts{
-            margin-top: 70px;
 
             .im-con{
                 background-color: black;
@@ -387,21 +397,58 @@ $white: white;
                 margin-top: 30px;
             }
 
+        
+
             .login_but{
-                background-color: $white;
-                color: #0c0c0c;
+                // background-color: $white;
+                // color: #0c0c0c;
+                // border: #1e1e1e1f solid 1px;
+                // border-radius: 0%;
+                // text-align: center;
+                // font-size: 15px;
+                // margin-top: 30px;
+                // width: 100%;
+                // position:relative;
+                // display:inline-block;
+                // z-index:0;
+                 
+
+                display:inline-block;
+                position:relative;
+                background-color: white;
+                cursor:pointer;
                 border: #1e1e1e1f solid 1px;
+                z-index:0;
+                color: #0c0c0c;
                 border-radius: 0%;
                 text-align: center;
-                font-size: 15px;
+                width: 100%;
                 margin-top: 30px;
+               
             }
-
-            .login_but:hover {
+        
+            
+        
+            .login_but:before {
+                content: "";
+                position: absolute;
+                z-index:-1;
+                top: 0;  left: 0;  right: 0;  bottom: 0;
+                
                 background-color: $red;
-                transition: 0.2s;
-                color: white;
-            }
+        
+                transform: scaleX(0);
+                transform-origin: 0 50%;
+                transition: transform .5s ease-out;
+                
+              }
+              .login_but:hover:before{
+                 
+                transform: scaleX(1);}
+        
+                .login_but:hover{
+                 color: #fff;
+                transition: 0.6s}
             
             .user-image{
                 width: 100%;

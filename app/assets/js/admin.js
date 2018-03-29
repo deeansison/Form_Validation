@@ -61,13 +61,13 @@ function closeNav() {
 
 
 
-document.querySelector("#sup").addEventListener("click", function () {
+document.querySelector("#new-emp").addEventListener("click", function () {
     document.querySelector(".main-row").classList.remove('hide');
     document.querySelector(".sign-up-modal").classList.add('hide');
 });
 
 
-$("#sup").click(function (e) { 
+$("#new-emp").click(function (e) { 
     e.preventDefault();
     $('.main-row').addClass('hide');
     $('.sign-up-modal').removeClass('hide');
@@ -81,6 +81,95 @@ $("#log-in").click(function (e) {
 });
 
 
+
+// $(document).ready(function(){
+//     $('#signUpBtn').attr('disabled',true);
+//     $('#cpassword').keyup(function(){
+//         if($(this).val().length !=0){
+          
+//             var check = function() {
+//                 if (document.getElementById('rpassword').value ==
+//           document.getElementById('cpassword').value) {
+
+//             $('#signUpBtn').attr('disabled',false);
+
+//           }
+
+//           else{
+//             $('#signUpBtn').attr('disabled',true);
+
+//           }
+
+//             }
+
+            
+//         }
+          
+//         else{
+//             $('#signUpBtn').attr('disabled',true);
+//         }
+           
+//     })
+
+// });
+
+$(document).ready(function(){
+    //$('#signUpBtn').css('background',"yellow");
+    $('#signUpBtn').css('visibility', "hidden");
+    $('#signUpBtnDum').attr('disabled', true); 
+    $('#signUpBtnDum').css('visibility', "visible"); 
+    
+
+    $('#correctpass').html('');
+   
+    
+
+
+
+    $('#rpassword, #cpassword').on('keyup', function (){
+        if($(this).val().length !=0){
+            // $('#rpassword, #cpassword').on('keyup', function () {
+                if ($('#rpassword').val() == $('#cpassword').val()) {
+                    // $('#signUpBtn').attr('disabled',false);
+                    $('#correctpass').html('Password Match').css('color', 'green');
+                    $('#signUpBtn').css('visibility', "visible");
+                    $('#signUpBtnDum').attr('disabled', true); 
+    $('#signUpBtnDum').css('visibility', "hidden"); 
+                } else {
+                    $('#signUpBtn').css('visibility', "hidden");
+                    $('#signUpBtnDum').css('visibility', "visible"); 
+                    $('#signUpBtnDum').attr('disabled', true); 
+
+                $('#correctpass').html('Password Not Match').css('color', 'red');
+            //   });
+        }
+    }
+        else
+        {
+            $('#signUpBtn').css('visibility', "hidden");
+            $('#signUpBtnDum').attr('disabled', true); 
+            $('#signUpBtnDum').css('visibility', "visible"); 
+                 
+           $('#correctpass').html('');
+        }
+    })
+});
+
+
+
+    // document.getElementById('signUpBtn').disabled = true;
+
+
+
+    // var check = function() {
+    //     if (document.getElementById('rpassword').value ==
+    //       document.getElementById('cpassword').value) {
+    //         document.getElementById('signUpBtn').disabled = false;
+    //     } else {
+    //         document.getElementById('signUpBtn').disabled = true;
+    //     }
+    //   }
+    
 
 
 

@@ -229,6 +229,13 @@
     font-size: 40px;
     float: left; }
 
+.logo {
+  text-align: center; }
+  .logo img {
+    margin-top: 20px;
+    height: 100px;
+    width: 300px; }
+
 .main-container {
   background-color: white; }
   .main-container .modal-body {
@@ -241,53 +248,68 @@
     justify-content: center;
     align-items: center;
     text-align: center; }
-    .main-container .modal-body .conts {
-      margin-top: 70px; }
-      .main-container .modal-body .conts .im-con {
-        background-color: black;
-        height: 150px;
-        width: 150px;
-        overflow: hidden;
-        border-radius: 50%;
-        margin-bottom: 30px;
-        margin-left: auto;
-        margin-right: auto; }
-        .main-container .modal-body .conts .im-con .ann-img {
-          height: 120%;
-          width: 100%;
-          object-fit: cover; }
-      .main-container .modal-body .conts .p-con {
-        height: auto; }
-        .main-container .modal-body .conts .p-con #usrname {
-          padding: 0;
-          margin: 0;
-          font-size: 14px;
-          text-transform: capitalize;
-          color: #0c0c0c; }
-      .main-container .modal-body .conts .admin_choose {
-        margin-top: 30px; }
-      .main-container .modal-body .conts .login_but {
-        background-color: white;
-        color: #0c0c0c;
-        border: #1e1e1e1f solid 1px;
-        border-radius: 0%;
-        text-align: center;
-        font-size: 15px;
-        margin-top: 30px; }
-      .main-container .modal-body .conts .login_but:hover {
-        background-color: #DD2018;
-        transition: 0.2s;
-        color: white; }
-      .main-container .modal-body .conts .user-image {
+    .main-container .modal-body .conts .im-con {
+      background-color: black;
+      height: 150px;
+      width: 150px;
+      overflow: hidden;
+      border-radius: 50%;
+      margin-bottom: 30px;
+      margin-left: auto;
+      margin-right: auto; }
+      .main-container .modal-body .conts .im-con .ann-img {
+        height: 120%;
         width: 100%;
-        height: 100%;
-        margin-bottom: 3%; }
-        .main-container .modal-body .conts .user-image img {
-          width: 30%;
-          height: 10%; }
-      .main-container .modal-body .conts .content_but {
-        margin-top: 30px;
-        width: 100%;
-        text-align: center; }
+        object-fit: cover; }
+    .main-container .modal-body .conts .p-con {
+      height: auto; }
+      .main-container .modal-body .conts .p-con #usrname {
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        text-transform: capitalize;
+        color: #0c0c0c; }
+    .main-container .modal-body .conts .admin_choose {
+      margin-top: 30px; }
+    .main-container .modal-body .conts .login_but {
+      display: inline-block;
+      position: relative;
+      background-color: white;
+      cursor: pointer;
+      border: #1e1e1e1f solid 1px;
+      z-index: 0;
+      color: #0c0c0c;
+      border-radius: 0%;
+      text-align: center;
+      width: 100%;
+      margin-top: 30px; }
+    .main-container .modal-body .conts .login_but:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #DD2018;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      transition: transform .5s ease-out; }
+    .main-container .modal-body .conts .login_but:hover:before {
+      transform: scaleX(1); }
+    .main-container .modal-body .conts .login_but:hover {
+      color: #fff;
+      transition: 0.6s; }
+    .main-container .modal-body .conts .user-image {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 3%; }
+      .main-container .modal-body .conts .user-image img {
+        width: 30%;
+        height: 10%; }
+    .main-container .modal-body .conts .content_but {
+      margin-top: 30px;
+      width: 100%;
+      text-align: center; }
 
 /*# sourceMappingURL=index.css.map */

@@ -5,7 +5,9 @@
 .content {
   display: flex;
   flex-direction: row;
-  justify-content: center; }
+  justify-content: center;
+  width: 100%;
+  height: 10vh; }
   .content .lck {
     margin-top: 61px;
     text-align: left;
@@ -78,14 +80,13 @@
       height: calc(100% - 10px);
       border-bottom: 1px solid #1e1e1e1f; }
     .content .fld .input__label--hoshi::after {
-      margin-top: 2px;
       border-bottom: 4px solid;
       -webkit-transform: translate3d(-100%, 0, 0);
       transform: translate3d(-100%, 0, 0);
       -webkit-transition: -webkit-transform 0.3s;
       transition: transform 0.3s; }
     .content .fld .input__label--hoshi-color-1::after {
-      border-color: #4d0900; }
+      border-bottom: 1.5px solid #4d0900; }
     .content .fld .input__field--hoshi:focus + .input__label--hoshi::after,
     .content .fld .input--filled .input__label--hoshi::after {
       -webkit-transform: translate3d(0, 0, 0);
@@ -199,225 +200,6 @@
       transform: translate3d(0, 0, 0); }
     .content .fld1 .input__field--hoshi:focus + .input__label--hoshi .input__label-content--hoshi,
     .content .fld1 .input--filled .input__label-content--hoshi {
-      -webkit-animation: anim-1 0.3s forwards;
-      animation: anim-1 0.3s forwards; }
-@-webkit-keyframes anim-1 {
-  50% {
-    opacity: 0;
-    -webkit-transform: translate3d(1em, 0, 0);
-    transform: translate3d(1em, 0, 0); }
-  51% {
-    opacity: 0;
-    -webkit-transform: translate3d(-1em, -40%, 0);
-    transform: translate3d(-1em, -40%, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, -40%, 0);
-    transform: translate3d(0, -40%, 0); } }
-@keyframes anim-1 {
-  50% {
-    opacity: 0;
-    -webkit-transform: translate3d(1em, 0, 0);
-    transform: translate3d(1em, 0, 0); }
-  51% {
-    opacity: 0;
-    -webkit-transform: translate3d(-1em, -40%, 0);
-    transform: translate3d(-1em, -40%, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, -40%, 0);
-    transform: translate3d(0, -40%, 0); } }
-  .content .fld2 {
-    width: 300px;
-    height: 50px;
-    /* Component Start */
-    /* Individual styles */
-    /* Hoshi */ }
-    .content .fld2 .input {
-      position: relative;
-      z-index: 2;
-      display: inline-block;
-      width: calc(105% - 2em);
-      vertical-align: top; }
-    .content .fld2 #USERIMAGE {
-      margin-top: 30px; }
-    .content .fld2 .input__field {
-      position: relative;
-      display: block;
-      float: right;
-      padding: 2px;
-      width: 150%;
-      border: none;
-      border-radius: 0;
-      font-size: 20px;
-      -webkit-appearance: none;
-      /* for box shadows to show on iOS */ }
-    .content .fld2 .input__field:focus {
-      outline: none; }
-    .content .fld2 .input--hoshi {
-      overflow: hidden; }
-    .content .fld2 .input__field--hoshi {
-      margin-top: 1em;
-      padding: 0.85em 0.10em;
-      width: 100%;
-      background: transparent;
-      color: #1e1e1e;
-      margin-bottom: 0;
-      padding-left: 24px; }
-    .content .fld2 .input__label--hoshi {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: calc(135% - 1em);
-      text-align: left;
-      pointer-events: none;
-      z-index: 2; }
-    .content .fld2 ::placeholder {
-      /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: #1e1e1e1f;
-      opacity: 1;
-      /* Firefox */ }
-    .content .fld2 :-ms-input-placeholder {
-      /* Internet Explorer 10-11 */
-      color: #1e1e1e1f; }
-    .content .fld2 ::-ms-input-placeholder {
-      /* Microsoft Edge */
-      color: #1e1e1e1f; }
-    .content .fld2 .input__label--hoshi::before,
-    .content .fld2 .input__label--hoshi::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: calc(100% - 10px);
-      border-bottom: 1px solid #1e1e1e1f; }
-    .content .fld2 .input__label--hoshi::after {
-      margin-top: 2px;
-      border-bottom: 4px solid;
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
-      -webkit-transition: -webkit-transform 0.3s;
-      transition: transform 0.3s; }
-    .content .fld2 .input__label--hoshi-color-1::after {
-      border-color: #4d0900; }
-    .content .fld2 .input__field--hoshi:focus + .input__label--hoshi::after,
-    .content .fld2 .input--filled .input__label--hoshi::after {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0); }
-    .content .fld2 .input__field--hoshi:focus + .input__label--hoshi .input__label-content--hoshi,
-    .content .fld2 .input--filled .input__label-content--hoshi {
-      -webkit-animation: anim-1 0.3s forwards;
-      animation: anim-1 0.3s forwards; }
-@-webkit-keyframes anim-1 {
-  50% {
-    opacity: 0;
-    -webkit-transform: translate3d(1em, 0, 0);
-    transform: translate3d(1em, 0, 0); }
-  51% {
-    opacity: 0;
-    -webkit-transform: translate3d(-1em, -40%, 0);
-    transform: translate3d(-1em, -40%, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, -40%, 0);
-    transform: translate3d(0, -40%, 0); } }
-@keyframes anim-1 {
-  50% {
-    opacity: 0;
-    -webkit-transform: translate3d(1em, 0, 0);
-    transform: translate3d(1em, 0, 0); }
-  51% {
-    opacity: 0;
-    -webkit-transform: translate3d(-1em, -40%, 0);
-    transform: translate3d(-1em, -40%, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, -40%, 0);
-    transform: translate3d(0, -40%, 0); } }
-  .content .fld3 {
-    width: 300px;
-    height: 50px;
-    margin-top: 30px;
-    /* Component Start */
-    /* Individual styles */
-    /* Hoshi */ }
-    .content .fld3 .input {
-      position: relative;
-      z-index: 1;
-      display: inline-block;
-      width: calc(105% - 2em);
-      vertical-align: top; }
-    .content .fld3 #USERIMAGE {
-      margin-top: 30px; }
-    .content .fld3 .input__field {
-      position: relative;
-      display: block;
-      float: right;
-      padding: 2px;
-      width: 150%;
-      border: none;
-      border-radius: 0;
-      font-size: 20px;
-      -webkit-appearance: none;
-      /* for box shadows to show on iOS */ }
-    .content .fld3 .input__field:focus {
-      outline: none; }
-    .content .fld3 .input--hoshi {
-      overflow: hidden; }
-    .content .fld3 .input__field--hoshi {
-      margin-top: 1em;
-      padding: 0.85em 0.10em;
-      width: 100%;
-      background: transparent;
-      color: #1e1e1e;
-      margin-bottom: 0;
-      padding-left: 24px; }
-    .content .fld3 .input__label--hoshi {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: calc(135% - 1em);
-      text-align: left;
-      pointer-events: none;
-      z-index: 2; }
-    .content .fld3 ::placeholder {
-      /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: #1e1e1e1f;
-      opacity: 1;
-      /* Firefox */ }
-    .content .fld3 :-ms-input-placeholder {
-      /* Internet Explorer 10-11 */
-      color: #1e1e1e1f; }
-    .content .fld3 ::-ms-input-placeholder {
-      /* Microsoft Edge */
-      color: #1e1e1e1f; }
-    .content .fld3 .input__label--hoshi::before,
-    .content .fld3 .input__label--hoshi::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: calc(100% - 10px);
-      border-bottom: 1px solid #1e1e1e1f; }
-    .content .fld3 .input__label--hoshi::after {
-      margin-top: 2px;
-      border-bottom: 4px solid;
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
-      -webkit-transition: -webkit-transform 0.3s;
-      transition: transform 0.3s; }
-    .content .fld3 .input__label--hoshi-color-1::after {
-      border-color: #4d0900; }
-    .content .fld3 .input__field--hoshi:focus + .input__label--hoshi::after,
-    .content .fld3 .input--filled .input__label--hoshi::after {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0); }
-    .content .fld3 .input__field--hoshi:focus + .input__label--hoshi .input__label-content--hoshi,
-    .content .fld3 .input--filled .input__label-content--hoshi {
       -webkit-animation: anim-1 0.3s forwards;
       animation: anim-1 0.3s forwards; }
 @-webkit-keyframes anim-1 {

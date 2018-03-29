@@ -3,24 +3,28 @@ $main-color-gray: #1e1e1e;
 $red: #DD2018;
 $white: #ffffff;
 
-.kestrel{
-  width: 100%;
-  background-color: #0c0c0c;
-float: right;
-z-index: 1;
-  img{
-width: 20px;
-height: 20px;
-  }
-}
+// .kestrel{
+//   width: 100%;
+//   background-color: #0c0c0c;
+// float: right;
+// z-index: 1;
+//   img{
+// width: 20px;
+// height: 20px;
+//   }
+// }
+
+
+
+body{
 
 
   .clockdate-wrapper {
-    background-color:  $white;
+    //background-color:  $white;
     padding-top: 20px;
     padding-right: 20px;
     position: fixed;
-    z-index: 1;
+    z-index: -1;
     width:100%;
     text-align:right;
     
@@ -91,6 +95,8 @@ height: 20px;
         display: inline-block;
       }
   }
+
+  
 }
 
 .icon-bar a:hover {
@@ -103,10 +109,17 @@ height: 20px;
   background-color: $red !important;
 }
 
+.logo{
+  text-align: center;
 
-body{
-
-
+  img{
+    z-index: 2;
+    margin-top:20px; 
+    //margin-bottom:40px;
+    height: 100px;
+    width: 300px;
+  } 
+}
  
   
 
@@ -128,11 +141,11 @@ body{
 
     
     .clock-cont{
-   margin: 0%;
-   padding-top: 10px;
+      margin-top: 50px;
+      padding: 0;
       width: 100%;
-      background-color:  $white;
-      height: 100vh;
+  
+      
 
       display: flex;
       flex-direction: column;
@@ -140,16 +153,6 @@ body{
       align-items: center;
 
    
-      .logo{
-        text-align: center;
-    
-        img{
-            
-          margin-bottom:30px;
-            height: 100px;
-            width: 300px;
-        } 
-    }
     
         .im-con{
             background-color: black;
@@ -210,7 +213,7 @@ body{
         justify-content: center;
         align-items: center;
         text-align: center;
-        
+        margin-bottom: 5px;
           .btnin{ 
             background-color: white;
             color: #0c0c0c;
@@ -219,8 +222,34 @@ body{
             text-align: center;
             font-size: 15px;
             width: 250px;
+            z-index:0;
+            display:inline-block;
+            position:relative;
+            cursor:pointer;
           
           }
+          .btnin:before {
+            content: "";
+            position: absolute;
+            z-index:-1;
+            top: 0;  left: 0;  right: 0;  bottom: 0;
+            
+            background-color: $red;
+    
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            transition: transform .5s ease-out;
+            
+          }
+          .btnin:hover:before{
+             
+            transform: scaleX(1);}
+    
+            .btnin:hover{
+             color: #fff;
+            transition: 0.6s}
+        
+
       
           .btnout{
             background-color: white;
@@ -230,13 +259,44 @@ body{
             text-align: center;
             font-size: 15px;
             width: 250px;
+            z-index:0;
+            display:inline-block;
+            position:relative;
+            cursor:pointer;
           
             
      
           }
 
+
+
+          .btnout:before {
+            content: "";
+            position: absolute;
+            z-index:-1;
+            top: 0;  left: 0;  right: 0;  bottom: 0;
+            
+            background-color: $red;
+    
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            transition: transform .5s ease-out;
+            
+          }
+          .btnout:hover:before{
+             
+            transform: scaleX(1);}
+    
+            .btnout:hover{
+             color: #fff;
+            transition: 0.6s}
+          
+
+
+
+
+
           .m-accounts{
-            margin-top: 2px;
             background-color: white;
             color: #0c0c0c;
             border: #1e1e1e1f solid 1px;
@@ -244,24 +304,74 @@ body{
             text-align: center;
             font-size: 15px;
             width: 250px;
+            z-index:0;
+            display:inline-block;
+            position:relative;
+            cursor:pointer;
 
           }
-          .btnin:hover {
-            background-color: $red;
-            transition: 0.2s;
-            color: white;
-        }
-          .btnout:hover {
-            background-color: $red;
-            transition: 0.2s;
-            color: white;
-        }
 
-        .m-accounts:hover {
-          background-color: $red;
-          transition: 0.2s;
-          color: white;
-      }
+          .m-accounts:before {
+            content: "";
+            position: absolute;
+            z-index:-1;
+            top: 0;  left: 0;  right: 0;  bottom: 0;
+            
+            background-color: $red;
+    
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            transition: transform .5s ease-out;
+            
+          }
+          .m-accounts:hover:before{
+             
+            transform: scaleX(1);}
+    
+            .m-accounts:hover{
+             color: #fff;
+            transition: 0.6s}
+
+
+
+
+            .p-announcements{
+              background-color: white;
+              color: #0c0c0c;
+              border: #1e1e1e1f solid 1px;
+              border-radius: 0%;
+              text-align: center;
+              font-size: 15px;
+              width: 250px;
+              z-index:0;
+              display:inline-block;
+              position:relative;
+              cursor:pointer;
+  
+            }
+          
+            .p-announcements:before {
+              content: "";
+              position: absolute;
+              z-index:-1;
+              top: 0;  left: 0;  right: 0;  bottom: 0;
+              
+              background-color: $red;
+      
+              transform: scaleX(0);
+              transform-origin: 0 50%;
+              transition: transform .5s ease-out;
+              
+            }
+            .p-announcements:hover:before{
+               
+              transform: scaleX(1);}
+      
+              .p-announcements:hover{
+               color: #fff;
+              transition: 0.6s}
+     
+  
       }
       
 
