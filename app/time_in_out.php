@@ -8,11 +8,10 @@ require('connection.php');
     $username   =   $_POST['username'];
     $statusform   =   $_POST['statusform'];
 
-    $connection->query("INSERT INTO t_in_out (time_in,date_in,time_out,date_out,total_days,total_hrs,total_min,total_sec,username,statusform) VALUES ('$time_in', '$date_in', '---','---','---','---','---','---','$username','On Work')");
     $connection->query("UPDATE user_credentials set status='On Work' where username='$username' ");
 
-
-    
+    $connection->query("INSERT INTO time_in_out_backup (username,timein,datein,timeout,dateout,totaldays,totalhrs,totalmins,totalsecs,status,reason, archive_tinout, add_in_out) 
+    VALUES ('$username','$time_in', '$date_in','---','---','---','---','---','---','On Work','---', '', '')");
 
 
 ?>

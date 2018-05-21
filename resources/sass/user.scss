@@ -141,7 +141,7 @@ body{
 
     
     .clock-cont{
-      margin-top: 50px;
+      // margin-top: 50px;
       padding: 0;
       width: 100%;
   
@@ -205,15 +205,71 @@ body{
         }
 
       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
       .btns{
 
         width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
-        text-align: center;
+        // align-items: center;
+        // text-align: center;
         margin-bottom: 5px;
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           .btnin{ 
             background-color: white;
             color: #0c0c0c;
@@ -263,7 +319,7 @@ body{
             display:inline-block;
             position:relative;
             cursor:pointer;
-          
+         display: none;
             
      
           }
@@ -333,8 +389,6 @@ body{
             transition: 0.6s}
 
 
-
-
             .p-announcements{
               background-color: white;
               color: #0c0c0c;
@@ -349,7 +403,7 @@ body{
               cursor:pointer;
   
             }
-          
+  
             .p-announcements:before {
               content: "";
               position: absolute;
@@ -370,11 +424,138 @@ body{
               .p-announcements:hover{
                color: #fff;
               transition: 0.6s}
-     
+
+         
+
+
   
       }
       
 
     }
+
+
+   
   }
 }
+
+.mod-cont{
+
+  .mod-bod{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+  width: 100%;
+    .rem-post{
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 80%;
+      
+
+      .edit-view-announcement{
+        font-size: 10px;
+        text-decoration: none;
+        color: #1e1e1e;
+        float: right;
+            margin-top: 10px;
+          }
+
+          .edit-view-announcement:hover {
+            color: red;
+            transition: 0.3s;
+        }
+        
+    .ann-text-field{
+      width: 100%;
+      height:100px;
+      margin-bottom: 5px;
+
+      
+    }
+
+    .ann-text-field:focus{
+     border: #c70909 solid 1px;
+      
+      
+    }
+  
+  
+  }
+      
+  
+  }
+  
+  .mod-footer{
+    border:none;
+  //  padding: 0px 70px 17px 63px;
+  width: 90%;
+  padding-top: 0px;
+   .ann-but{
+    background-color: white;
+  color: #0c0c0c;
+  border: #1e1e1e1f solid 1px;
+  border-radius: 0%;
+  text-align: center;
+  font-size: 15px;
+  width: 100px;
+  z-index:0;
+  display:inline-block;
+  position:relative;
+  cursor:pointer;
+  }
+
+
+  .ann-but-view{
+    background-color: white;
+  color: #0c0c0c;
+  border: #1e1e1e1f solid 1px;
+  border-radius: 0%;
+  text-align: center;
+  font-size: 15px;
+  width: 200px;
+  z-index:0;
+  display:inline-block;
+  position:relative;
+  cursor:pointer;
+  }
+
+
+  .ann-but:before {
+    content: "";
+    position: absolute;
+    z-index:-1;
+    top: 0;  left: 0;  right: 0;  bottom: 0;
+    
+    background-color: $red;
+  
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform .5s ease-out;
+    
+  }
+  .ann-but:hover:before{
+     
+    transform: scaleX(1);}
+  
+    .ann-but:hover{
+     color: #fff;
+    transition: 0.6s}
+
+  }
+  
+  
+
+
+}
+
+
+
+
+
+
+
+
+

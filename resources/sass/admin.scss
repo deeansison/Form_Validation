@@ -1,14 +1,1075 @@
+$sidenav-gray-color: darken(#1e1e1e, 50%);
+$hover-gray-color:rgba( #1e1e1e, 0.1 );
+$light-gray-color:rgba( #1e1e1e, .3 );
+$medium-gray-color:rgba( #1e1e1e, .7 );
+$dark-gray: #1e1e1e;
+$kestrel-red: #D9231E;
+$dark-red: hsl(7, 100%, 15%);
+$dark-green:hsl(129, 100%, 15%);
+$white: rgb(255, 255, 255);
+$green: rgb(199, 238, 231);
+$red: rgb(250, 199, 198);
+$hover-green: rgb(30, 217, 89);
 
-$light-gray: #eceef1;
-$gray: darken(#eceef1, 30%);
-$slate: darken(#eceef1, 70%);
-$turquoise: #1abc9c;
 
-$main-color-gray-opacity: darken(#1e1e1e, 50%);
-$main-color-gray: #1e1e1e;
-$red: #DD2018;
-$white: white;
+.search{
+    margin-left: 135px;
+    .fld2{
+        width: 340px;
+        height: 50px;
 
+        //INPUT
+        .input {
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            width: calc(89% - 2em);
+            vertical-align: top;    
+
+           
+            //END/FOR WARNING MESSAGE
+
+            //FOR ICON
+            .lck{
+                margin-top: 11px;
+                text-align: left;
+                z-index: 2;
+                
+                .lck_icon{
+                    font-size: 20px;
+                    color:  $dark-gray;
+                }    
+            }
+            //END/FOR ICON
+
+            
+
+            // FOR BUTTON *hover
+        }
+        //END/INPUT
+
+        .input__field {
+            position: relative;
+            display: block;
+            float: right;
+            padding: 2px;
+            width: 150%;
+            border: none;
+            border-radius: 0;
+            font-size: 20px;
+            -webkit-appearance: none; /* for box shadows to show on iOS */
+        }
+
+        .input__field:focus {
+            outline: none;
+        }
+
+        /* Individual styles */
+
+        /* Hoshi */
+        .input--hoshi {
+            overflow: hidden;    
+        }
+
+        .input__field--hoshi {
+            padding: 1px 0px 15px 0px;
+            width: 100%;
+            background: transparent;
+            color: $dark-gray;
+            margin-bottom: 0;
+            padding-left: 24px;
+        }
+
+        .input__label--hoshi {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: calc(135% - 1em);
+            text-align: left;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $light-gray-color;
+            opacity: 1; /* Firefox */
+        }
+
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: $light-gray-color;
+        }
+        
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: $light-gray-color;
+        }
+
+        .input__label--hoshi::before,
+        .input__label--hoshi::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 10px);
+        
+            border-bottom: 1px solid $light-gray-color;
+        
+        }
+
+        .input__label--hoshi::after {
+    
+            border-bottom: 4px solid;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-transition: -webkit-transform 0.3s;
+            transition: transform 0.3s;
+        }
+        
+        .input__label--hoshi-color-1::after {
+            // border-color: hsl(7, 100%, 15%);
+            border-bottom: 1.5px solid $dark-red;
+        }
+        
+        .input__field--hoshi:focus + .input__label--hoshi::after,
+        .input--filled .input__label--hoshi::after {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+        
+        .input__field--hoshi:focus + .input__label--hoshi .input__label-content--hoshi,
+        .input--filled .input__label-content--hoshi {
+            -webkit-animation: anim-1 0.3s forwards;
+            animation: anim-1 0.3s forwards;
+        }
+        
+        @-webkit-keyframes anim-1 {
+            50% {
+                opacity: 0;
+                -webkit-transform: translate3d(1em, 0, 0);
+                transform: translate3d(1em, 0, 0);
+            }
+            51% {
+                opacity: 0;
+                -webkit-transform: translate3d(-1em, -40%, 0);
+                transform: translate3d(-1em, -40%, 0);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translate3d(0, -40%, 0);
+                transform: translate3d(0, -40%, 0);
+            }
+        }
+
+        @keyframes anim-1 {
+            50% {
+                opacity: 0;
+                -webkit-transform: translate3d(1em, 0, 0);
+                transform: translate3d(1em, 0, 0);
+            }
+            51% {
+                opacity: 0;
+                -webkit-transform: translate3d(-1em, -40%, 0);
+                transform: translate3d(-1em, -40%, 0);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translate3d(0, -40%, 0);
+                transform: translate3d(0, -40%, 0);
+            }
+        }
+
+    }
+
+}
+.ui-datepicker{
+    position: relative; 
+    z-index: 10000 !important; 
+}
+
+//FOR CLOCK AND DATE
+.clockdate-wrapper {
+    padding-top: 20px;
+    padding-right: 20px;
+    position: absolute;
+    z-index: 1;
+    width:100%;
+    text-align:right;
+
+    //CLOCK
+    #clock{
+        font-family: sans-serif;
+        font-size:30px;
+        text-shadow:0px 0px 1px $white;
+        color: $dark-red;
+    }
+
+    #clock span {
+        font-size:30px;
+    }
+    //END/CLOCK
+
+    //DATE
+    #date {
+        font-size:15px;
+        font-family:arial,sans-serif;
+        color:$dark-red;
+    }
+
+    h6{
+        color:$kestrel-red;
+    }
+    //END/DATE
+}
+//END/FOR CLOCK AND DATE
+
+// ------------------------------------------- START FOR ADMIN VALIDATION--------------------------------------
+.icon-bar-adminval {
+    position: fixed;
+    margin-top: 20px;
+    z-index: 2;
+
+    a {
+        position: relative;
+        left: -81px;
+        width: 153px;
+        transition: 0.3s;
+        height: auto;
+        background-color: $sidenav-gray-color;
+        opacity: 0.8;
+        border: $white solid 1px;
+        display: block;
+        text-align: left;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        color: $white;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 5px;
+  
+        #prof{
+            margin-right: 50px;
+            font-size: 15px;
+            display: inline-block;
+        }
+
+        #lgout{
+            margin-right: 30px;
+            font-size: 15px;
+            display: inline-block;
+        }
+    } 
+}
+  
+.icon-bar-adminval a:hover {
+    background-color: $kestrel-red;
+    left: 0;
+}
+
+//FOR LOGO
+.logo-adminval{
+    text-align: center;
+    
+    img{
+        margin-top:20px; 
+        margin-bottom:20px;
+        height: 100px;
+        width: 300px;
+    }
+
+}
+//END/FOR LOGO
+
+
+// MAIN CONTAINER
+.main-user-cont{
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    //USER-CONT-ONE
+    .user-cont-one{
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .im-con{
+            background-color: $white;
+            height: 142px;
+            width: 144px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin-bottom:10px;
+
+            .usr-img{
+                height:100%;
+                width:100%;
+                object-fit: cover;
+            }
+        }
+
+        .p-con{
+            height: auto;
+            margin-bottom:10px;
+
+            #usr-name{
+                padding: 0;
+                margin: 0;
+                font-size: 14px;
+                text-transform: capitalize;
+                color: $dark-gray;
+            }
+
+            #usr-pos{
+                padding: 0;
+                margin: 0;
+                font-size: 12px;
+                text-transform: capitalize;
+                color: $medium-gray-color;
+            }
+        }  
+    
+    
+        #status{ 
+            #statusdummy2{
+            background-color: $white;
+            border: none;
+            width: 100%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0;
+            }
+        }
+
+        //BUTTONS GRP
+        .btns-admin-val{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1px;
+
+            //TIME-IN
+            .btnin{ 
+                background-color: $white;
+                color: $dark-green;
+                border: $green solid 1px !important;
+                border: none;
+                border-radius: 0%;
+                text-align: center;
+                font-size: 15px;
+                width: 250px;
+                z-index:0;
+                display:inline-block;
+                position:relative;
+                cursor:pointer;
+                margin-bottom: 15px;
+            }
+
+            .btnin:active{
+                border: $green solid 1px !important;
+                border: none;
+                outline:0;
+            }
+            .btnin:focus{
+                border: $green solid 1px !important;
+                border: none;
+                outline:0;
+            }
+
+            //WAG DELETE
+            // .btnin:before {
+            //     content: "";
+            //     position: absolute;
+            //     z-index:-1;
+            //     top: 0;  left: 0;  right: 0;  bottom: 0;
+            //     background-color: $kestrel-red;
+            //     transform: scaleX(0);
+            //     transform-origin: 0 50%;
+            //     transition: transform .5s ease-out;
+                
+            // }
+            // .btnin:hover:before{
+            //     transform: scaleX(1);
+            // }
+            //WAG DELETE
+        
+            .btnin:hover{
+                color: $white;
+                transition: 0.4s;
+                background-color: $hover-green;
+                border: none;
+                outline:0;
+            }
+            //END/TIME-IN
+
+            //TIME-OUT
+            .btnout{
+                background-color: $white;
+                color: $dark-red;
+                border: $red solid 1px !important;
+                border: none;
+                border-radius: 0%;
+                text-align: center;
+                font-size: 15px;
+                width: 250px;
+                z-index:0;
+                display:inline-block;
+                position:relative;
+                cursor:pointer;
+                display: none;
+                margin-bottom: 15px;
+            }
+
+            .btnout:active{
+                border: $red solid 1px !important;
+                border: none;
+                outline:0;
+            }
+            .btnout:focus{
+                border: $red solid 1px !important;
+                border: none;
+                outline:0;
+            }
+            
+            //WAG DELETE
+            // .btnout:before {
+            //     content: "";
+            //     position: absolute;
+            //     z-index:-1;
+            //     top: 0;  left: 0;  right: 0;  bottom: 0;
+            //     background-color: $kestrel-red;
+            //     transform: scaleX(0);
+            //     transform-origin: 0 50%;
+            //     transition: transform .5s ease-out;
+                
+            // }
+
+            // .btnout:hover:before{
+            //     transform: scaleX(1);
+            // }
+            //WAG DELETE
+    
+            .btnout:hover{
+                color: $white;
+                transition: 0.4s;
+                background-color: $kestrel-red;
+                border: none;
+                outline:0;
+            }
+            //END/TIME-OUT
+          
+            //MANAGE-ACCOUNTS
+            .m-accounts{
+                background-color: $white;
+                color: $dark-gray;
+                border: $light-gray-color solid 1px !important;
+                border: none;
+                border-radius: 0%;
+                text-align: center;
+                font-size: 15px;
+                width: 250px;
+                z-index:0;
+                display:inline-block;
+                position:relative;
+                cursor:pointer;
+            }
+
+            .m-accounts:active{
+                border: $light-gray-color solid 1px !important;
+                border: none;
+                outline:0;
+            }
+            .m-accounts:focus{
+                border: $light-gray-color solid 1px !important;
+                border: none;
+                outline:0;
+            }
+
+            //WAG DELETE
+            // .m-accounts:before {
+            //     content: "";
+            //     position: absolute;
+            //     z-index:-1;
+            //     top: 0;  left: 0;  right: 0;  bottom: 0;
+            //     background-color: $kestrel-red;
+            //     transform: scaleX(0);
+            //     transform-origin: 0 50%;
+            //     transition: transform .5s ease-out;
+            // }
+            
+            // .m-accounts:hover:before{
+            //     transform: scaleX(1);
+            // }
+            //WAG DELETE
+    
+            .m-accounts:hover{
+                color: $white;
+                transition: 0.4s;
+                background-color: $kestrel-red;
+                border: none;
+                outline:0;
+            }
+            //END/MANAGE-ACCOUNTS
+
+            //ANNOUNCEMENTS
+            .p-announcements{
+                background-color: $white;
+                color: $dark-gray;
+                border: $light-gray-color solid 1px !important;
+                border: none;
+                border-radius: 0%;
+                text-align: center;
+                font-size: 15px;
+                width: 250px;
+                z-index:0;
+                display:inline-block;
+                position:relative;
+                cursor:pointer;
+            }
+
+            .p-announcements:active{
+                border: $light-gray-color solid 1px !important;
+                border: none;
+                outline:0;
+            }
+            .p-announcements:focus{
+                border: $light-gray-color solid 1px !important;
+                border: none;
+                outline:0;
+            }
+
+            //WAG DELETE
+            // .p-announcements:before {
+            //     content: "";
+            //     position: absolute;
+            //     z-index:-1;
+            //     top: 0;  left: 0;  right: 0;  bottom: 0;
+            //     background-color: $kestrel-red;
+            //     transform: scaleX(0);
+            //     transform-origin: 0 50%;
+            //     transition: transform .5s ease-out;
+            // }
+
+            // .p-announcements:hover:before{ 
+            //     transform: scaleX(1);
+            // }
+            //WAG DELETE
+        
+            .p-announcements:hover{
+                color: $white;
+                transition: 0.4s;
+                background-color: $kestrel-red;
+                border: none;
+            }
+            //END/ANNOUNCEMENTS
+        }
+        //END/BUTTONS GRP
+    }
+    //END/USER-CONT-ONE
+}
+//END/MAIN CONTAINER
+
+
+//MODAL BODY FOR ANNOUNCEMENT
+.mod-cont{
+
+    .mod-head{
+        padding: 10px;
+
+        .edit-view-announcement{
+            font-size: 10px;
+            text-decoration: none;
+            color: $dark-gray;
+            float: right;
+            margin: 0 !important;
+        }
+    
+        .edit-view-announcement:hover {
+          color: $kestrel-red;
+          transition: 0.3s;
+        }
+    }
+
+    // MODAL-BODY
+    .mod-bod{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+      
+        .rem-post{
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 97%;
+          
+            .ann-text-field{
+                width: 100%;
+                height:100px;
+                margin-bottom: 5px;  
+            }
+  
+            .ann-text-field:focus{
+                border: $dark-red solid 1px;
+            }
+
+            .ann-text-field:hover{
+                border: $dark-red solid 1px;
+            }
+        } 
+    }
+    // END/MODAL-BODY
+    
+    // MODAL-FOOTER
+    .mod-footer{
+        border:none;
+        width: 98%;
+        padding-top: 0px;
+  
+        .ann-but-view{
+            background-color: $white;
+            color: $dark-gray;
+            border: $light-gray-color solid 1px;
+            border-radius: 0%;
+            text-align: center;
+            font-size: 15px;
+            width: 200px;
+            z-index:0;
+            display:inline-block;
+            position:relative;
+            cursor:pointer;
+        }
+
+        
+        .ann-but{
+            background-color: $white;
+            color: $dark-gray;
+            border: $light-gray-color solid 1px;
+            border-radius: 0%;
+            text-align: center;
+            font-size: 15px;
+            width: 100px;
+            z-index:0;
+            display:inline-block;
+            position:relative;
+            cursor:pointer;
+        }
+        
+        .ann-but:hover{
+            color: $white;
+            transition: 0.4s;
+            background-color: $kestrel-red;
+        }
+    }
+    //END/MODAL-FOOTER
+}
+//END/MODAL BODY FOR ANNOUNCEMENT
+
+
+//OT REQUEST FORM
+
+// #myModal1{
+   
+
+//CONTENT2
+.form-cont{
+    text-align: center;
+
+   .form-head{
+       text-align: left !important;
+       padding: 10px;
+
+        #request_show{
+            font-size: 10px;
+            float: right;
+            text-decoration: none;
+            color: $dark-gray;
+            margin-top: 10px;
+        }
+
+        #request_show:hover {
+          color: $kestrel-red;
+          transition: 0.3s;
+        }
+      
+   }
+    .form-but{
+        background-color: $white;
+        color: $dark-gray;
+        border-bottom: $light-gray-color solid 1px !important;
+        border-top: $light-gray-color solid 1px !important;
+        border: none;
+        border-radius: 0%;
+        text-align: center;
+        font-size: 15px;
+        width: 184px;
+        z-index:0;
+        display:inline-block;
+        // position:relative;
+        cursor:pointer;
+        margin: 10px 0px 10px 0px;
+        outline: 0;
+    }
+
+    .form-but:hover{
+        color: $white;
+        transition: 0.4s;
+        background-color: $kestrel-red;
+    }
+
+    .content-admin-val{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 10px;
+        text-align: left !important;
+
+        //FIELD
+        .fld-admin-val{
+            width: 535px;
+            height: 50px;
+
+            //INPUT
+            .input {
+                position: relative;
+                z-index: 2;
+                display: inline-block;
+                width: calc(105% - 2em);
+                vertical-align: top;    
+
+                //FOR WARNING MESSAGE
+                .msg_cont-admin-val{
+                    width: 100%;
+                    height: 20px;
+                    position: relative;
+                
+                    .need-admin-val{
+                        position: absolute;
+                        height: 20px;
+                        width: 200px;
+                        font-size: 10px;
+                        color: $kestrel-red;
+
+                        #datenow_OT{
+                            border: none;
+                            width: 27%;
+                        }
+                    }
+                }
+                //END/FOR WARNING MESSAGE
+
+                //FOR ICON
+                .icon-admin-val{
+                    margin-top: 38px;
+                    text-align: left;
+                    z-index: 2;
+                    
+                    .ad-icon{
+                        font-size: 20px;
+                        color:  $dark-gray;
+                    }    
+                }
+                //END/FOR ICON
+
+                //FOR MESSAGE TEXT AREA
+                .msg-text-field{
+                    width: 100%;
+                    height:50px;
+                    margin-bottom: 5px;  
+                }
+      
+                .msg-text-field:focus{
+                border: $dark-red solid 1px;
+                }
+                //FOR MESSAGE TEXT AREA
+                
+                //FOR BUTTON
+                .sgnup-button{
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    display:inline-block;
+                    background-color: $white;
+                    cursor:pointer;
+                    border: $light-gray-color solid 1px;
+                    z-index:0;
+                    color: $dark-gray;
+                    border-radius: 0%;
+                    text-align: center;
+                    width: 100%;
+                    margin-top: 30px;
+                    visibility: hidden;
+                }
+               
+                // FOR BUTTON *hover
+                .sgnup-button:before {
+                    content: "";
+                    position: absolute;
+                    z-index:-1;
+                    top: 0;  left: 0;  right: 0;  bottom: 0;
+                    background-color: $kestrel-red;
+                    transform: scaleX(0);
+                    transform-origin: 0 50%;
+                    transition: transform .5s ease-out;
+                }
+
+                .sgnup-button:hover:before{
+                    transform: scaleX(1);
+                }
+            
+                .sgnup-button:hover{
+                    color: $white;
+                    transition: 0.6s
+                }
+                //END/ FOR BUTTON *hover
+            }
+            //END/INPUT
+
+            .input__field {
+                position: relative;
+                display: block;
+                float: right;
+                padding: 2px;
+                width: 150%;
+                border: none;
+                border-radius: 0;
+                font-size: 20px;
+                -webkit-appearance: none; /* for box shadows to show on iOS */
+            }
+
+            .input__field:focus {
+                outline: none;
+            }
+
+            /* Individual styles */
+
+            /* Hoshi */
+            .input--hoshi {
+                overflow: hidden;    
+            }
+
+            .input__field--hoshi {
+                padding: 1px 0px 15px 5px;
+                width: 100%;
+                background: transparent;
+                color: $dark-gray;
+                margin-bottom: 0;
+            }
+
+            .input__label--hoshi {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: calc(135% - 1em);
+                text-align: left;
+                pointer-events: none;
+                z-index: 2;
+            }
+
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: $light-gray-color;
+                opacity: 1; /* Firefox */
+            }
+
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $light-gray-color;
+            }
+            
+            ::-ms-input-placeholder { /* Microsoft Edge */
+                color: $light-gray-color;
+            }
+
+            .input__label--hoshi::before,
+            .input__label--hoshi::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: calc(100% - 10px);
+            
+                border-bottom: 1px solid $light-gray-color;
+            
+            }
+
+            .input__label--hoshi::after {
+        
+                border-bottom: 4px solid;
+                -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-100%, 0, 0);
+                -webkit-transition: -webkit-transform 0.3s;
+                transition: transform 0.3s;
+            }
+            
+            .input__label--hoshi-color-1::after {
+                // border-color: hsl(7, 100%, 15%);
+                border-bottom: 1.5px solid $dark-red;
+            }
+            
+            .input__field--hoshi:focus + .input__label--hoshi::after,
+            .input--filled .input__label--hoshi::after {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            
+            .input__field--hoshi:focus + .input__label--hoshi .input__label-content--hoshi,
+            .input--filled .input__label-content--hoshi {
+                -webkit-animation: anim-1 0.3s forwards;
+                animation: anim-1 0.3s forwards;
+            }
+            
+            @-webkit-keyframes anim-1 {
+                50% {
+                    opacity: 0;
+                    -webkit-transform: translate3d(1em, 0, 0);
+                    transform: translate3d(1em, 0, 0);
+                }
+                51% {
+                    opacity: 0;
+                    -webkit-transform: translate3d(-1em, -40%, 0);
+                    transform: translate3d(-1em, -40%, 0);
+                }
+                100% {
+                    opacity: 1;
+                    -webkit-transform: translate3d(0, -40%, 0);
+                    transform: translate3d(0, -40%, 0);
+                }
+            }
+
+            @keyframes anim-1 {
+                50% {
+                    opacity: 0;
+                    -webkit-transform: translate3d(1em, 0, 0);
+                    transform: translate3d(1em, 0, 0);
+                }
+                51% {
+                    opacity: 0;
+                    -webkit-transform: translate3d(-1em, -40%, 0);
+                    transform: translate3d(-1em, -40%, 0);
+                }
+                100% {
+                    opacity: 1;
+                    -webkit-transform: translate3d(0, -40%, 0);
+                    transform: translate3d(0, -40%, 0);
+                }
+            }
+
+        }
+        //END/FIELD
+    }
+    //END/CONTENT2
+}
+
+.mod-footer-ot-req{
+    border: none;
+    width: 100%;
+    margin-bottom: 10px;
+
+    #sendemail{
+        background-color: $white;
+        color: $dark-gray;
+        border: $light-gray-color solid 1px;
+        border-radius: 0%;
+        text-align: center;
+        font-size: 15px;
+        width: 100px;
+        z-index:0;
+        display:inline-block;
+        position:relative;
+        cursor:pointer;
+        margin-right: 18px;
+        height: 35px;
+    }
+
+    // #sendemail:before {
+    //     content: "";
+    //     position: absolute;
+    //     z-index:-1;
+    //     top: 0;  left: 0;  right: 0;  bottom: 0;
+    //     background-color: $kestrel-red;
+    //     transform: scaleX(0);
+    //     transform-origin: 0 50%;
+    //     transition: transform .5s ease-out;
+    // }
+
+    // #sendemail:hover:before{
+    //     transform: scaleX(1);
+    // }
+    
+    
+    #sendemail:hover{
+        color: $white;
+        transition: 0.4s;
+        background-color: $kestrel-red;
+    }
+
+    #add_inout{
+        background-color: $white;
+        color: $dark-gray;
+        border: $light-gray-color solid 1px;
+        border-radius: 0%;
+        text-align: center;
+        font-size: 15px;
+        width: 100px;
+        z-index:0;
+        display:inline-block;
+        position:relative;
+        cursor:pointer;
+        margin-right: 18px;
+        height: 35px;
+    }
+    
+    #add_inout:hover{
+        color: $white;
+        transition: 0.4s;
+        background-color: $kestrel-red;
+    }
+
+    #add_inout_in{
+        background-color: $white;
+        color: $dark-gray;
+        border: $light-gray-color solid 1px;
+        border-radius: 0%;
+        text-align: center;
+        font-size: 15px;
+        width: 100px;
+        z-index:0;
+        display:inline-block;
+        position:relative;
+        cursor:pointer;
+        margin-right: 18px;
+        height: 35px;
+    }
+    
+    #add_inout_in:hover{
+        color: $white;
+        transition: 0.4s;
+        background-color: $kestrel-red;
+    }
+}
+
+// }
+
+    
+
+
+//   -----------------------------------------END/FOR ADMIN VALIDATION--------------------------------------
+
+
+
+
+//   -----------------------------------------START FOR ADMIN--------------------------------------
 //BODY
 body{
     overflow-x: hidden;
@@ -21,11 +1082,60 @@ body{
         
         a {
             position: relative;
+            left: -81px;
+            width: 153px;
+            transition: 0.3s;
+            height: auto;
+            background-color: $sidenav-gray-color;
+            opacity: 0.8;
+            border: $white solid 1px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            color: $white;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 5px;
+      
+            #lg-out-admin{
+              margin-right: 30px;
+              font-size: 15px;
+              display: inline-block;
+            }
+
+            #home-admin{
+              margin-right: 50px;
+              font-size: 15px;
+              display: inline-block;
+            }
+
+        }
+    }
+      
+    .icon-bar-admin a:hover {
+        background-color: $kestrel-red;
+        left: 0;
+    }
+
+    .icon-bar-admin #href-ann:hover {
+        background-color: $kestrel-red;
+        left: 0;
+    }
+
+    // FOR PROFILE
+    .icon-bar-admin-profile {
+        position: fixed;
+        margin-top: 139px;
+        z-index: 2;
+        
+        a {
+            position: relative;
             left: -70px;
             width: 150px;
             transition: 0.3s;
             height: auto;
-            background-color: $main-color-gray-opacity;
+            background-color: $sidenav-gray-color;
             opacity: 0.8;
             border: $white solid 1px;
             display: block;
@@ -37,13 +1147,13 @@ body{
             cursor: pointer;
             padding: 5px;
       
-            #so{
+            #lg-out-admin{
               margin-right: 30px;
               font-size: 15px;
               display: inline-block;
             }
 
-            #ho{
+            #home-admin{
               margin-right: 50px;
               font-size: 15px;
               display: inline-block;
@@ -52,55 +1162,110 @@ body{
         }
     }
       
-    .icon-bar-admin a:hover {
-        background-color: $red;
+    .icon-bar-admin-profile a:hover {
+        background-color: $kestrel-red;
         left: 0;
     }
 
-    .icon-bar-admin #href-ann:hover {
-        background-color: $red;
+    .icon-bar-admin-profile #href-ann:hover {
+        background-color: $kestrel-red;
         left: 0;
     }
+
+
     //END/FOR ICON
-      
 
-    //FOR CLOCK AND DATE
-    .clockdate-wrapper {
-        padding-top: 20px;
-        padding-right: 20px;
+    //FOR ICON ADD
+    .icon-bar-admin-add {
         position: fixed;
-        z-index: -1;
-        width:100%;
-        text-align:right;
+        margin-top: 20px;
+        z-index: 2;
+        
+        a {
+            position: relative;
+            left: -61px;
+            width: 133px;
+            transition: 0.3s;
+            height: auto;
+            background-color: $sidenav-gray-color;
+            opacity: 0.8;
+            border: $white solid 1px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            color: $white;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 4px;
+  
 
-        //CLOCK
-        #clock{
-          background-color:  $white;
-          font-family: sans-serif;
-          font-size:20px;
-          text-shadow:0px 0px 1px #fff;
-          color:rgb(5, 4, 4);
+            #back-admin{
+              margin-right: 34px;
+              font-size: 15px;
+              display: inline-block;
+            }
+
         }
-      
-        #clock span {
-          color:#888;
-          text-shadow:0px 0px 1px  ;
-          font-size:30px;
-        }
-        //END/CLOCK
-      
-        //DATE
-        #date {
-            font-size:13px;
-            font-family:arial,sans-serif;
-            color:rgb(5, 4, 4);
-        }
-        //END/DATE
     }
-    //END/FOR CLOCK AND DATE
       
+    .icon-bar-admin-add a:hover {
+        background-color: $kestrel-red;
+        left: 0;
+    }
+
+    .icon-bar-admin-add #href-ann:hover {
+        background-color: $kestrel-red;
+        left: 0;
+    }
+
+
+    .icon-bar-admin-up {
+        position: fixed;
+        margin-top: 20px;
+        z-index: 2;
+        
+        a {
+            position: relative;
+            left: -61px;
+            width: 133px;
+            transition: 0.3s;
+            height: auto;
+            background-color: $sidenav-gray-color;
+            opacity: 0.8;
+            border: $white solid 1px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            color: $white;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 6px;
+  
+
+            #back-admin{
+              margin-right: 34px;
+              font-size: 15px;
+              display: inline-block;
+            }
+
+        }
+    }
+      
+    .icon-bar-admin-up a:hover {
+        background-color: $kestrel-red;
+        left: 0;
+    }
+
+    .icon-bar-admin-up #href-ann:hover {
+        background-color: $kestrel-red;
+        left: 0;
+    }
+    //END/FOR ICON ADD
+
     //FOR LOGO
-    .logo{
+    .logo-admin{
         text-align: center;
         img{
             margin-top:20px; 
@@ -110,16 +1275,6 @@ body{
         } 
     }
     //END/FOR LOGO
-
-    .welcome-uname-cont{
-        width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
-        #welcome-name{
-            font-size: 15px;
-            color: #4e0d0d;
-        }
-    }
 
 
 //--------------------------------- START CODE FOR ADMIN/VIEW USER------------------------------
@@ -139,11 +1294,15 @@ body{
             flex-flow: row wrap;
             background-color: $white;
             margin: auto;
-            max-width: 83%;
+            max-width: 86%;
             justify-content: center;
             display: flex;
             flex-wrap: wrap;
 
+            li{
+                list-style: none;
+                
+            }
             //CARDS
             .crds{
                 display: block;
@@ -158,7 +1317,7 @@ body{
                 
                     //CARDS2
                     .crds2{
-                        border: #1e1e1e1f solid 1px;
+                        border: $light-gray-color solid 1px;
                         height: 252px;
                         width: 252px;
                         border-radius: 8px;
@@ -191,7 +1350,7 @@ body{
                                 margin: 0;
                                 font-size: 14px;
                                 text-transform: capitalize;
-                                color: #0c0c0c;
+                                color: $dark-gray;
                             }
     
                             #comp-pos{
@@ -199,7 +1358,7 @@ body{
                                 margin: 0;
                                 font-size: 12px;
                                 text-transform: capitalize;
-                                color: #aaaaaa;
+                                color: $medium-gray-color;
                             }
                         } 
                         //END/VIEW EMPLOYEE FOR IMAGE/PROFILE
@@ -216,7 +1375,7 @@ body{
                                 width:100%;
                                 object-fit: cover;
                                 font-size: 90px;
-                                color: black;
+                                color: $dark-gray;
                             }
                         }
                         //END/ADD EMPLOYEE FOR IMAGE
@@ -225,7 +1384,7 @@ body{
                 
                     //CARDS *hover
                     .crds2:hover{
-                        background-color: #1e1e1e28;
+                        background-color: $hover-gray-color;
                         transition: 0.2s;
                     }
                     //END/CARDS *hover
@@ -233,6 +1392,81 @@ body{
                 //END/SELECTUSER
             }
             //END/CARDS
+
+
+            //CARDS-YOU
+            .crds-you{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                
+                //SELECTUSER
+                .selectuser-you{
+                    border: none;
+                    background-color: $white;
+                    outline-style: none;
+                
+                    //CARDS2
+                    .crds2-you{
+                        border: $kestrel-red solid 1px;
+                        height: 252px;
+                        width: 252px;
+                        border-radius: 8px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 10px;
+
+                        //VIEW EMPLOYEE FOR IMAGE/PROFILE
+                        .im-con-you{
+                            height: 100px;
+                            width: 100px;
+                            overflow: hidden;
+                            border-radius: 50%;
+                            margin-bottom:30px;
+
+                            .user-img-you{
+                                height:100%;
+                                width:100%;
+                                object-fit: cover;
+                            }
+                        }
+
+                        .prof-con-you{
+                            height: auto;
+
+                            #usr-fname-you{
+                                padding: 0;
+                                margin: 0;
+                                font-size: 14px;
+                                text-transform: capitalize;
+                                color: $dark-gray;
+                            }
+    
+                            #comp-pos-you{
+                                padding: 0;
+                                margin: 0;
+                                font-size: 12px;
+                                text-transform: capitalize;
+                                color: $medium-gray-color;
+                            }
+                        } 
+                        //END/VIEW EMPLOYEE FOR IMAGE/PROFILE
+                    }
+                    //END/CARDS2-YOU
+                
+                    //CARDS *hover
+                    .crds2-you:hover{
+                        background-color: $hover-gray-color;
+                        transition: 0.2s;
+                    }
+                    //END/CARDS-you *hover
+                }
+                //END/SELECTUSER-you
+            }
+            //END/CARDS-YOU
+    
         } 
         //END/USER PROFILE
     }
@@ -257,13 +1491,13 @@ body{
         border: none;
         box-shadow: none;
         width: 100%;
-        height: 100vh;
+        // height: 90vh;
         background-color: $white;
         border-radius: 0%;
 
         //CONTENT1
         .content1{
-            margin: 0 0 19px 0;
+            //margin: 0 0 19px 0;
             padding: 0;
             display:flex;
             flex-direction: row;
@@ -297,13 +1531,13 @@ body{
                         width:100%;
                         object-fit: cover;
                         font-size: 90px;
-                        color: rgb(0, 0, 0);
+                        color: $dark-gray;
                         text-align: center;
                     }
                     
                     input[type=file]{
                         padding:10px;
-                        background:#2d2d2d;
+                        background:$dark-gray;
                     }
 
                 }
@@ -321,8 +1555,8 @@ body{
                         padding: 3px;
                         cursor: pointer;
                         background-color: $white;
-                        color: #0c0c0c;
-                        border: #1e1e1e1f solid 1px;
+                        color: $dark-gray;
+                        border: $light-gray-color solid 1px;
                         border-radius: 0%;
                         text-align: center;
                         font-size: 15px;
@@ -330,9 +1564,9 @@ body{
                     }
 
                     .file-upload__label:hover {
-                        background-color: $red;
+                        background-color: $kestrel-red;
                         transition: 0.2s;
-                        color: white;
+                        color: $white;
                     }
 
                     .img-up {
@@ -383,7 +1617,7 @@ body{
                                 display: inline-block;
                                 height: 14px;
                                 width: 14px;
-                                border: #1e1e1e1f solid 1px;
+                                border: $light-gray-color solid 1px;
                                 position: relative;
                                 border-radius: 50%;
 
@@ -395,7 +1629,7 @@ body{
                                     height: 14px;
                                     width: 14px;
                                     content: '';
-                                    background-color: $red;
+                                    background-color: $kestrel-red;
                                     border-radius: 50%;
                                 }
                             }
@@ -415,7 +1649,7 @@ body{
         .content2{
             width: 100%;
             height: auto;
-            background-color: $red;
+            background-color: $kestrel-red;
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -453,7 +1687,7 @@ body{
                                 height: 20px;
                                 width: 200px;
                                 font-size: 10px;
-                                color: $red;
+                                color: $kestrel-red;
                             }
         
                             #correctpass{
@@ -461,7 +1695,7 @@ body{
                                 height: 20px;
                                 width: 150px;
                                 font-size: 10px;
-                                color: #aaaaaa;
+                                color: $medium-gray-color;
                             }
                         }
                         //END/FOR WARNING MESSAGE
@@ -474,7 +1708,7 @@ body{
                             
                             .lck_icon{
                                 font-size: 20px;
-                                color:  #1e1e1e;
+                                color:  $dark-gray;
                             }    
                         }
                         //END/FOR ICON
@@ -487,13 +1721,14 @@ body{
                             display:inline-block;
                             background-color: $white;
                             cursor:pointer;
-                            border: #1e1e1e1f solid 1px;
+                            border: $light-gray-color solid 1px;
                             z-index:0;
-                            color: #0c0c0c;
+                            color: $dark-gray;
                             border-radius: 0%;
                             text-align: center;
                             width: 100%;
                             margin-top: 30px;
+                            margin-bottom: 30px;
                             visibility: hidden;
                         }
 
@@ -503,11 +1738,11 @@ body{
                             left: 0px;
                             position: relative;
                             display:inline-block;
-                            background-color: white;
+                            background-color: $white;
                             cursor:pointer;
-                            border: #1e1e1e1f solid 1px;
+                            border: $light-gray-color solid 1px;
                             z-index:0;
-                            color: #0c0c0c;
+                            color: $dark-gray;
                             border-radius: 0%;
                             text-align: center;
                             width: 100%;
@@ -517,58 +1752,31 @@ body{
             
                         .sgnup-buttondum{
                             display:inline-block;
-                            background-color: white;
+                            background-color:$white;
                             cursor:pointer;
-                            border: #1e1e1e1f solid 1px;
+                            border: $light-gray-color solid 1px;
                             z-index:0;
-                            color: #0c0c0c;
+                            color: $dark-gray;
                             border-radius: 0%;
                             text-align: center;
                             width: 100%;
                             margin-top: 30px;  
+                            margin-bottom: 30px;
                         }
                         //END/FOR BUTTON
             
-                        // FOR BUTTON *hover
-                        .sgnup-button:before {
-                            content: "";
-                            position: absolute;
-                            z-index:-1;
-                            top: 0;  left: 0;  right: 0;  bottom: 0;
-                            background-color: $red;
-                            transform: scaleX(0);
-                            transform-origin: 0 50%;
-                            transition: transform .5s ease-out;
-                        }
-
-                        .sgnup-button:hover:before{
-                            transform: scaleX(1);
-                        }
                     
                         .sgnup-button:hover{
-                            color: #fff;
-                            transition: 0.6s
+                            color: $white;
+                            transition: 0.4s;
+                            background-color: $kestrel-red;
                         }
 
-                        //FOR UPDATE BUTTON
-                        .update-button:before {
-                            content: "";
-                            position: absolute;
-                            z-index:-1;
-                            top: 0;  left: 0;  right: 0;  bottom: 0;
-                            background-color: $red;
-                            transform: scaleX(0);
-                            transform-origin: 0 50%;
-                            transition: transform .5s ease-out;
-                        }
-
-                        .update-button:hover:before{
-                            transform: scaleX(1);
-                        }
                     
                         .update-button:hover{
-                            color: #fff;
-                            transition: 0.6s
+                            color: $white;
+                            transition: 0.4s;
+                            background-color: $kestrel-red;
                         }
                         //END/FOR UPDATE BUTTON
 
@@ -603,7 +1811,7 @@ body{
                         padding: 1px 0px 15px 0px;
                         width: 100%;
                         background: transparent;
-                        color: #1e1e1e;
+                        color: $dark-gray;
                         margin-bottom: 0;
                         padding-left: 24px;
                     }
@@ -620,16 +1828,16 @@ body{
                     }
 
                     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-                        color: #1e1e1e1f;
+                        color: $light-gray-color;
                         opacity: 1; /* Firefox */
                     }
         
                     :-ms-input-placeholder { /* Internet Explorer 10-11 */
-                        color: #1e1e1e1f;
+                        color: $light-gray-color;
                     }
                     
                     ::-ms-input-placeholder { /* Microsoft Edge */
-                        color: #1e1e1e1f;
+                        color: $light-gray-color;
                     }
 
                     .input__label--hoshi::before,
@@ -641,7 +1849,7 @@ body{
                         width: 100%;
                         height: calc(100% - 10px);
                     
-                        border-bottom: 1px solid #1e1e1e1f;
+                        border-bottom: 1px solid $light-gray-color;
                     
                     }
         
@@ -656,7 +1864,7 @@ body{
                     
                     .input__label--hoshi-color-1::after {
                         // border-color: hsl(7, 100%, 15%);
-                        border-bottom: 1.5px solid  hsl(7, 100%, 15%);
+                        border-bottom: 1.5px solid $dark-red;
                     }
                     
                     .input__field--hoshi:focus + .input__label--hoshi::after,
@@ -719,4 +1927,37 @@ body{
 //END/SIGN-UP-MODAL
 //--------------------------------- END CODE FOR ADDING USER------------------------------
 
+
+.footer-admin {
+    margin-top: 94px;
+    margin-bottom: 10px;
+    left: 0;
+    width: 100%;
+    color: $light-gray-color;
+    text-align: center;
+ }
+
+ .footer-adminvalidation {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    left: 0;
+    width: 100%;
+    color: $light-gray-color;
+    text-align: center;
+ }
+
+ .footer-user {
+    margin-top: 93px;
+    margin-bottom: 10px;
+    left: 0;
+    width: 100%;
+    color: $light-gray-color;
+    text-align: center;
+    position: fixed;
+    bottom:0;
+
+ }
 }//END/FOR BODY
+//   -----------------------------------------END/FOR ADMIN--------------------------------------
+
+

@@ -9,22 +9,35 @@ function startTime() {
     var min = today.getMinutes();
     var sec = today.getSeconds();
     //Add a zero in front of numbers<10
-    min = checkTime(min);
-    sec = checkTime(sec);
+    if(hr<10)  {
+        hr='0'+hr 
+    } 
+    
+    if(min<10)  { 
+        min='0'+min 
+    }
+
+    if(sec<10) { 
+        sec='0'+sec 
+    } 
+    if(dd<10)  {
+        dd='0'+dd 
+    } 
+    
+    if(mm<10)  { 
+        mm='0'+mm 
+    }
+
+
     document.getElementById("clock").innerHTML = hr + " : " + min + " : " + sec;
-    document.getElementById("date").innerHTML = dd + " / " + mm + " / " + yy;
+    document.getElementById("date").innerHTML = mm + " / " + dd + " / " + yy;
 
 
     var time = setTimeout(function () { startTime() }, 1000);
 
 }
 
-function checkTime(i) {
-    if (i < 10) {
-        i = "0" + i;
-    }
-    return i;
-}
+
 
 
 

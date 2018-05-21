@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="assets/css/scroll.css">
     <link rel="stylesheet" href="assets/css/iconanimate.css">
 
-    <title>Kestrel-DDM</title>
+    <link rel="icon" href="assets\img\klogo.png" type="image/gif" sizes="10x10" />
+
+<title>Kestrel-IMC</title>
 </head>
 
 
@@ -27,10 +29,9 @@
 <header>
 
     <!-- ICON -->
-    <div class="icon-bar-admin">
-        <a href="adminvalidation.php" ><p id="ho">HOME</p><i class='fa fa-home'></i></a> 
-        <a href="logout.php" ><p id="so">LOGOUT</p><i class='fa fa-sign-out'></i></a> 
-    </div>
+    <!-- <div class="icon-bar-admin-add">
+        <a href="profile.php" ><p id="back-admin">BACK</p><i class='fa fa-arrow-left faa-horizontal animated '></i></a> 
+    </div> -->
     <!-- END/ICON -->
 
     <!-- CLOCK AND DATE -->
@@ -47,32 +48,26 @@
         include('connection.php');
         session_start();      
         if(isset($_SESSION["password"])){  
-            $uname = $_SESSION["username"];
+            $uname = $_SESSION["username"];       
+            $unameget = $_GET['edit'];
             $db = mysqli_connect("localhost","root","","special_project");
-            $sql = "SELECT user_image FROM user_credentials where username='$uname' ";
+            $sql = "SELECT user_image, username FROM user_credentials where username='$uname' ";
             $result = mysqli_query($db,$sql);
                         
             while($row=mysqli_fetch_array($result)){
-                echo' <div class="logo">
-                    <img src="assets/img/kestrellogo.png" alt="">
-                </div>';
-                echo'<div class="welcome-uname-cont">';
-                    echo'<span id="welcome-name">Good Day '.$_SESSION["username"].'!</span>';
-                echo'</div>';
+              
                 echo'<input id="username" name="username" type="hidden" class="form-control" value="'.$_SESSION["username"].'" > ';
             }
         }  
      
         else{  
-            header("location:index.php");  
+            header("location:logout.php");  
         } 
     ?>
 
 </header>
 <!-- END/HEADER -->
 
- 
-    
     
 <!--ADD EMPLOYEE-->
     
@@ -82,6 +77,17 @@
     $sql = "SELECT * FROM user_credentials where username='$uname' ";
     $result = mysqli_query($db,$sql);
     while($row=mysqli_fetch_array($result)){
+        echo'<div class="icon-bar-admin-add">
+            <a href="profile.php?view='.$row["username"].'"><p id="back-admin">BACK</p><i class="fa fa-arrow-left faa-horizontal animated"></i></a> 
+        </div>';
+        echo' <div class="logo-admin">
+            <img src="assets/img/kestrellogo.png" alt="">
+        </div>';
+        echo'<div class="welcome-uname-cont">';
+            echo'<span id="welcome-name">Good Day '.$_SESSION["username"].'!</span>';
+        echo'</div>';
+
+   
 
         echo"<div class='modal-dialog sign-up-modal'>";
             echo"<div class='modal-content'>";            
@@ -155,7 +161,7 @@
                                     echo"<div class='msg_cont'>";
                                         echo"<span class='need'></span>";
                                     echo"</div>";
-                                    echo"<input class='input__field input__field--hoshi' type='text'  id='ea' name='ea' placeholder='Email Address *' value='".$row['email_address']."' required/>";
+                                    echo"<input class='input__field input__field--hoshi' type='email'  id='ea' name='ea' placeholder='Email Address *' value='".$row['email_address']."' required/>";
                                     echo"<label class='input__label input__label--hoshi input__label--hoshi-color-1' for='input-4'>";
                                         echo"<div class='lck'>";
                                             echo"<i class='fa fa-at lck_icon'></i>";
@@ -167,9 +173,9 @@
                             echo"<div class='fld2'>";
                                 echo"<span class='input input--hoshi'>";
                                     echo"<div class='msg_cont'>";
-                                        echo"<span class='need'></span>";
+                                        echo"<span class='need'>Phone Number(Format:xxxx-xxx-xxxx)</span>";
                                     echo"</div>";
-                                    echo"<input class='input__field input__field--hoshi' type='text' id='cn' name='cn' placeholder='Contact Number *' value='".$row['contact_number']."' required/>";
+                                    echo"<input class='input__field input__field--hoshi' type='tel' pattern='^\d{4}-\d{3}-\d{4}$' id='cn' name='cn' placeholder='Contact Number *' value='".$row['contact_number']."' required/>";
                                     echo"<label class='input__label input__label--hoshi input__label--hoshi-color-1' for='input-4'>";
                                         echo"<div class='lck'>";
                                             echo"<i class='fa fa-phone lck_icon'></i>";

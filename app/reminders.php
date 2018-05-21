@@ -10,155 +10,175 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/iconanimate.css">
     <link rel="stylesheet" href="assets/css/reminders.css">
     <link rel="stylesheet" href="assets/css/scroll.css">
-    <title>Kestrel-DDM</title>
+
+    <link rel="stylesheet" href="assets/css/welcome.css">
+   
+    <link rel="icon" href="assets\img\klogo.png" type="image/gif" sizes="10x10" />
+
+    <title>Kestrel-IMC</title>
+    
 </head>
 
+<body onload="startTime()">
 
+<!-- HEADER -->
 <header>
-    <!-- Static navbar -->
-    <div class="container nav-cntainer">
-    <!-- Static navbar -->
-        <nav class="navbar navbar-default nav-cntents">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                        aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <span id="openBtn" onclick="openNav()"><img src="assets/img/kestrellogo.png" alt=""></span>
-                </div>
-            <div id="navbar" class="navbar-collapse collapse">
 
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="admin.php">home |</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle dt" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <?php
-                            include('connection.php');
-                            session_start();      
-                            if(isset($_SESSION["password"])){  
-                                $uname = $_SESSION["username"];
-                                $db = mysqli_connect("localhost","root","","special_project");
-                                $sql = "SELECT user_image FROM user_credentials where username='$uname' ";
-                                $result = mysqli_query($db,$sql);
-                        
-                                while($row=mysqli_fetch_array($result)){
-                                    echo '<input id="user_img" name="user_img" type="hidden" class="form-control" value="'.$row["user_image"].'" > '; 
-                                    echo "<img class='crd-img' src='".$row['user_image']."'width='10%' height='10%'>";
-                                    echo'<input id="username" name="username" type="hidden" class="form-control" value="'.$_SESSION["username"].'" > ';
-                                }
-                            }  
-                            
-                            else{  
-                                header("location:index.php");  
-                            } 
-                        ?>
-                    </a>
-                  
-                    <ul class="dropdown-menu">
-                        
-                        <?php
-                            echo '<li>';
-                                echo '<a href="logout.php">Logout</a>';
-                            echo '</li>';
-                            
-                            $uname = $_SESSION["username"];
-                            $db = mysqli_connect("localhost","root","","special_project");
-                            $sql = "SELECT username FROM user_credentials where username='$uname' ";
-                            $result = mysqli_query($db,$sql);
-                            while($row=mysqli_fetch_array($result)){
-                                echo '<li>';
-                                    echo "<a href='user_profile.php?view=".$row['username']." '>View Profile</a>";
-                                echo '</li>';
-                            }
-                        ?>
-                        
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-
-                </li>
-            </ul>
-            </div>
-            <!--/.nav-collapse -->
-            </div>
-            <!--/.container-fluid -->
-        </nav>
-
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+    <!-- FOR ICON -->
+    <div class="icon-bar-ann">
+        <a href="adminvalidation.php" ><p id="bck-ann">BACK</p><i class='fa fa-arrow-left faa-horizontal animated'></i></a> 
+        <a href="logout.php" ><p id="lgout-ann">LOGOUT</p><i class='fa fa-sign-out'></i></a> 
     </div>
+    <!-- END/FOR ICON -->
+
+    <!-- FOR CLOCK -->
+    <div id="clockdate">
+    <div class="clockdate-wrapper">
+        <div id="clock"></div>
+        <div id="date"></div>
+        <h6><i class="fa fa-map-marker"></i> Announcements</h6>
+    </div>
+    </div>
+    <!-- END/FOR CLOCK -->
+
+    <!-- FOR LOGO -->
+    <div class="logo-ann">
+        <img src="assets/img/kestrellogo.png" alt="">
+    </div>
+    <!-- END/FOR LOGO -->
+    
+    <!-- SESSION -->
+    <?php
+        include('connection.php');
+        session_start();      
+        if(isset($_SESSION["password"]) && ($_SESSION["position"]=='Admin')){ 
+            $uname = $_SESSION["username"];
+            $db = mysqli_connect("localhost","root","","special_project");
+            $sql = "SELECT user_image, first_name FROM user_credentials where username='$uname' ";
+            $result = mysqli_query($db,$sql);
+                        
+            while($row=mysqli_fetch_array($result)){
+                echo'<input id="user_img" name="user_img" type="hidden" class="form-control" value="'.$row["user_image"].'" > ';
+
+                echo'<div class="welcome-uname-cont">';
+                echo'   <div class="content">
+                            <div class="content__container">
+                                <ul class="content__container__list">
+                                <li class="content__container__list__item">Hi! '.$row["first_name"].'</li>
+                                <li class="content__container__list__item">Welcome to KESTREL</li>
+                                <li class="content__container__list__item">Hi! '.$row["first_name"].'</li>
+                                <li class="content__container__list__item">Welcome to KESTREL</li>
+                                </ul>
+                            </div>
+                        </div>                    
+                ';
+                echo'</div>';
+
+                echo'<input id="username" name="username" type="hidden" class="form-control" value="'.$_SESSION["username"].'" > ';
+            }
+        }  
+                            
+        else{  
+            header("location:logout.php");  
+        } 
+    ?>
+    <!-- END/SESSION -->
 
 </header>
+<!-- END/HEADER -->
 
-<body>
+<!-- SEARCH BAR -->
+    <div class="container">
+        <div class="content">
+            <div class="fld">
+                <span class="input input--hoshi">
+                    <input class="input__field input__field--hoshi" type="text" id="search-announcement" autocomplete="off" onkeyup="AnnouncementSearch()" name="search" placeholder="Search name"/>
+                    <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                        <div class="ann-icon">
+                            <i class="fa fa-search ann-icon-fafa"></i>
+                        </div>
+                    </label>
+                </span>
+            </div> 
+        </div>
+    </div>
+<!-- END/SEARCH BAR -->
+           
+<!-- TABLE HEADER -->
+<div class="container">
+    <div class="container-table">
+        <table class="table-one">
+            <thead class="thead-one">
+                <tr class="tr-one">
+                    <th class="th-one">Name</th>
+                    <th class="th-one">Announcement</th>
+                    <th class="th-one">Date Posted</th>
+                    <th class="edit-delete-column-head"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<!-- END/TABLE HEADER -->
 
-<div class="container c">
-  <table class="table t">
-    <thead>
-      <tr>
-        <th>username</th>
-        <th>announcement</th>
 
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-
-
-    <?php
-                                $db = mysqli_connect("localhost","root","","special_project");
-                                $sql = "SELECT * FROM announcement";
-                                $result = mysqli_query($db,$sql);
+<!-- TABLE BODY -->
+<div class="container">
+    <div class="container-table">
+        <table id="table">
+            <tbody>
+                <?php
+                    $db = mysqli_connect("localhost","root","","special_project");
+                    $sql = "SELECT * FROM announcement where archive_ann='' ORDER BY date DESC";
+                    $result = mysqli_query($db,$sql);
                                 
-                                while($row=mysqli_fetch_array($result)){
+                    while($row=mysqli_fetch_array($result)){
                                    
-                                    echo"<tr>";
-                                    echo"<td>".$row['username']."</td> ";
-                                    echo"<td>".$row['announcement']."</td>"; 
-                                    echo"<td>";
-                                    // echo"<input id='rem_id' name='rem_id' type='hidden' class='form-control' value='".$row['rem_id']."'>";
-                                   
-                                    echo"</td>"; 
-                                    echo"<td>";
-                                    echo" <h4><a href='reminderedit.php?editrem=" .$row['rem_id']. " '>Edit</a></h4>";
-                                    echo" <h4><a href='reminderconn.php?deleterem=".$row['rem_id']."'>Delete</a></h4>";
-                                    echo"</td>"; 
+                        echo"<tr>";
+                            echo"<td>".$row['name']."</td> ";
+                            echo"<td>".$row['announcement']."</td>"; 
+                            echo"<td>".$row['date']."</td> ";
+                            echo"<td class='edit-delete-column-body'>";
+                                echo"<a id='edit-row' href='reminderedit.php?editrem=" .$row['rem_id']. " '>
+                                <i class='fa fa-edit'></i> VIEW</a>";
+                                echo"<br>";
+                            echo"</td>"; 
+                        echo"</tr>";
                               
-                                }
-                            ?> 
-
-
-
-   
-    
-    </tbody>
-
-
-
-
-
-  </table>
+                    }
+                ?> 
+                <?php
+                    // $db = mysqli_connect("localhost","root","","special_project");
+                    // $sql = "SELECT * FROM announcement where archive_ann='Archive' ORDER BY date DESC";
+                    // $result = mysqli_query($db,$sql);
+                                
+                    // while($row=mysqli_fetch_array($result)){
+                                   
+                    //     echo"<tr>";
+                    //         echo"<td>".$row['name']."</td> ";
+                    //         echo"<td>".$row['announcement']."</td>"; 
+                    //         echo"<td>".$row['date']."</td> ";
+                    //         echo"<td class='edit-delete-column-body'>";
+                    //             echo"<a id='edit-row' href='reminderconn.php?deleterem=".$row['rem_id']."'>
+                    //             <i class='fa fa-edit'></i>Delete</a>";
+                    //             echo"<br>";
+                    //         echo"</td>"; 
+                    //     echo"</tr>";
+                    
+                    // }
+                ?> 
+            </tbody>
+        </table>
+    </div>
 </div>
 
-
- 
-
-
-    
+<div class="footer-read">
+    <p>Copyright © 2018 Kestrel IMC Corp. All rights reserved.</p>
+</div>
 
 
 <!-- Latest compiled and minified JavaScript -->
@@ -169,11 +189,11 @@
          <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    <script type="text/javascript" src="assets/js/admin-clock.js"></script> 
     <script type="text/javascript" src="assets/js/admin.js"></script>
-    <script type="text/javascript" src="assets/js/data.js"></script>
-   
-
+    
+    <script type="text/javascript" src="assets/js/filter-announcement.js"></script>
+    <script type="text/javascript" src="assets/js/ann-edit.js"></script>
     
 <!-- 
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script> -->

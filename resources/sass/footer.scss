@@ -1,0 +1,29 @@
+$sidenav-gray-color: darken(#1e1e1e, 50%);
+$hover-gray-color:rgba( #1e1e1e, 0.1 );
+$light-gray-color:rgba( #1e1e1e, .3 );
+$medium-gray-color:rgba( #1e1e1e, .7 );
+$dark-gray: #1e1e1e;
+$kestrel-red: #D9231E;
+$dark-red: hsl(7, 100%, 15%);
+$dark-green:hsl(129, 100%, 15%);
+$white: rgb(255, 255, 255);
+$green: rgb(199, 238, 231);
+$red: rgb(250, 199, 198);
+$hover-green: rgb(30, 217, 89);
+
+.footer {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    left: 0;
+    width: 100%;
+    color: $light-gray-color;
+    text-align: center;
+    
+    padding-left: 43px;
+
+
+    p{
+        float: left;
+    }
+ }
+
